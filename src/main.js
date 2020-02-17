@@ -1,3 +1,4 @@
+// import { IndividualWaterIntake } from './water-intake-calculations';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,12 +16,37 @@ $(document).ready(function() {
     event.preventDefault();
     let name = $("#name").val();
     let age = $("#age").val();
-    var body = $("#sex-or-bmi").val();
+    let body;
     let region = $("#location").val();
     let activity = $("#activity").val();
     $(".users-name").html(name);
     $("#personal-info").hide();
     $("form#goal").show();
+
+    //// WORK IN PROGRESS --------------------------------
+    // $("#calcBySex").click(function() {
+    //   $("div.sexs").show()
+    //   $("div.bmi").hide()
+    //   body = $("#sex").val();
+    // });
+    // $("#calcByBmi").click(function() {
+    //   $("div.sexs").hide()
+    //   $("div.bmi").show()
+    //   body = $("#sex").val();
+    // });
+    $("#sex-or-bmi").change(function() {
+      if ($(this).val() == "yes") {
+        $('#otherFieldGroupDiv').show();
+      } else {
+        $('#otherFieldGroupDiv').hide();
+        $('#otherField1').removeAttr('required');
+        $('#otherField1').removeAttr('data-error');
+        $('#otherField2').removeAttr('required');
+        $('#otherField2').removeAttr('data-error');
+      }
+    });
+    $("#seeAnotherFieldGroup").trigger("change");
+    // ----------------------------------------------------
     
     displayWaterintake(name, age, body, region, activity); 
   });
@@ -30,7 +56,7 @@ $(document).ready(function() {
     let waterBottle = $("#waterbottle").val();
     $("#goal").hide();
     $(".tracking").show();
-    
+
     console.log('gathered info:', goal, waterBottle);
   });
 });
