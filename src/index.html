@@ -6,7 +6,54 @@
 
 	<body>
 		<div class="container">
-			<h1>HAHAHAHA HYRATION</h1>
+			<h1>Hydration Aquarium</h1>
+			<div class="start">
+				<form id="personal-info">
+					<h2>Hello! Welcome to Hydrations aquarium!</h2>
+					<p>Here I am tellin you about how the app works, and instructing you to fill in the information below to start We will use this information to suggest an array of water intakes.</p>
+					<!-- person's information -->
+					<label for="name">Enter your name!</label><br>
+					<input id="name" type="text"><br>
+					<label for="age">age</label><br>
+					<input id="age" type="text"><br>
+					<label for="sex">choose how you want your water intake to be calculated</label><br>
+					<select class="form-control" id="sex-or-bmi">
+							<option value="sex">sex</option> <!--write code to automatically open up more form inputs -->
+							<option value="bmi">bmi</option>    <!--depending on which input s selected-->
+						</select>
+					<label for="activity level">activity level</label><br>
+					<input id="activity" type="text"><br>
+					<!-- city/state -->
+					<label for="location">Enter your location!</label><br>
+					<input id="location" type="text"><br>
+					<button type="submit">Submit info!</button>
+				</form>
+				<form id="goal">
+					<h2>Set Personal Goal</h2>
+					<p>based off your information, these are your recommende water intake options. please select one to commit to.</p>
+					<label for="daily goal">Enter your daily goal:</label><br>
+					<input id="daily-goal" type="text"><br>
+					<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
+					<input id="waterbottle" type="text"><br>
+					<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)</p><br>
+					<button type="submit">Start Tracking!</button>
+				</form>
+			</div>
+			<div class="track">
+				<hr>
+				<h2><span class="users-name"></span>'s water</h2>
+			</div>
+			<div class="pitcher"></div> <!--where total water consumption is recorded-->
+			<div class="bottle"></div>	<!--draggable div-->
+			<button class="add-water">add water</button>
+			<div class="adding-water">
+				<form action="add-water">
+					<label for="">select amount in oz</label>
+					<input type="number" id="quantity" name="quantity" min="4" max="36">
+				</form>
+			</div>
+			<div class="Aquarium"></div>
+			<hr>
 		</div>
 	</body>
 </html>
