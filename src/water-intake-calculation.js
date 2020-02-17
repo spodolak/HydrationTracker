@@ -1,4 +1,4 @@
-export class individualWaterIntake {
+export class IndividualWaterIntake {
 	constructor() {
 		//COLLECTED FROM USER
 		this.age = ;
