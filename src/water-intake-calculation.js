@@ -7,12 +7,13 @@ export class individualWaterIntake {
 		this.weight = ;
 		this.caffeineIntake = ;
 		this.activity = ;
+		this.location = ;
 	
 		//CALCULATED IN BACK END
 		this.bmi = ;
 		this.environment = ;
 		this.hydrationGoal = ;
-		this.currentHydrationLevel = ;
+		this.currentHydrationLevel = 0;
 	}
 
 	calculateHydrationGoal() {
