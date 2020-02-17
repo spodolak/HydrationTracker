@@ -1,49 +1,77 @@
-# PROJECT TITLE
+# Water tacker 
 
-#### project short description
+#### _Team week project_, _17th Feb. 2020_
 
-#### **By Stephanie Podolak**
+#### By _**Keturah Howard, Dana Luukko, Kristina Hengster Tintor and Stephanie Podolak**_
 
 ## Description
 
-Created with JavaScript, CSS and HTML, this site is designed to ....
 
 
-### Specs
-| Spec | Input | Output |
-| :-------------     | :------------- | :------------- |
-| **Spec** | Input | Output |
-| **Spec** | Input | Output |
+## Specifications:
+
+
+| Specification | Example Input | Example Output |
+| ------------- |:-------------:| -------------------:|
+| Start new goal tracking | enter name (phil) - start | Welcome phil |
+| User selects personal daily goal | please enter your goal | 70 oz |
+| assaign water bottle size | What size is your water bottle? | Bottle 1: 30 oz |
+| User can add multiple water bottle sizes | *click button for adding another waterbottle size* | Bottle 2: ___  |
+| User clicks 'done', gets taken to water tracking page | *click done* | form page closes and water tracking page opens |
+| User can log how much water they just drank | *click water button, selects how much they drank* | vis.rep. for reaching goal gets bigger |
+| User can see the time stamp of their last water intake | *user is idle* | * in corner * 'last water intake: 1:24 pm'|
+| User is congradulated when they reach goal | *user reaches water intake goal* | *confetti, changing colors* 'You did it!!'|
+| User's water intake amount is reset to zero at midnight | *time: 11:59* '50oz logged' | *time: 12:00* '0 oz logged'|
+
+
+
+
+
 
 ## Setup/Installation Requirements
 
-1. Clone this repository to your desktop using your prefered terminal. If using git bash type: "git clone https://github.com/spodolak/PROJECT-NAME-HERE.git" into your command line while in desktop directory.
-2. Navigate inside project directory by entering "cd PROJECT-NAME-HERE" in your terminal.
-3. Install node modules using command: "node install -y".
-4. Build webpack using command: "npm run build" OR launch a live server for development by using the command "npm run start".
+  1. Click on the *clone or download* button of this repository. You can download the project file clicking the **"Download Zip"** button, double clicking the file in downloads, and navigating to the index.html file and double clicking that. *Or*, you can copy the link that pops up when you've clicked the *clone or download* button above this README.md file.
+  2. Navigate to your terminal, where you have previously installed git (if you have not done this yet, go ahead and do so now).
+  3. In terminal, change your directory to desktop, and then type **"git clone https://github.com/**.
+  4. When you've pressed enter, my project will be cloned onto your desktop, and now you can change directory into it and type **"code ."** to open the projects files in Visual Studio Code!
+
+_Next, install npm in the project directory_
+
+5. At the root directory for this project, enter the command "npm install"
+6. Open the contents of the directory in a text editor or IDE of your choice (e.g., to open the contents of the directory in Visual Studio Code, enter the command "code ." in the Terminal).
+7. Open index.html in a browser of your choice (e.g., Google Chrome).
+
+_Installing you're own API key:_
+1. generate your individual API key by signing up for one on [this website](https://developer.betterdoctor.com/)
+2. Place your new API in an .env file at the top level of your directory (which you will create through either the terminal by changing directory intp the project and typing 'touch .env' or through right clicking over the project name on the left-heand side of VSCode interface and typing .env). Set it equal to what you'll call it by later- spelling and capitialization all identical. For example, I called it by ${process.env.API\_KEY}, so in my .env file its looks like 'API_KEY = xxxxxxxxxx', where the x's are my key. for your convenience, just set the API reference to the same format in your .env file so you dont have to change it in the doctors.js file.
+
+## Technologies Used
+
+* Git
+* HTML
+* CSS
+* JavaScript
+* jQuery
+* npm
+* webpack
+* babel
+* ESlint
+* Jest
+* VS Code
+* Bootstrap
+* Dotenv
 
 
 ## Known Bugs
-* No known bugs at this time.
+Currently there are no known bugs. 
 
-## Technologies Used
-* JavaScript
-* jQuery-3.4.1
-* HTML
-* CSS
-* Bootstrap-4.4.1
-* Node
+## Contact Info 
+Currently there sre no known bugs, however, if there are any issues running this website I would love feedback! Please email me at keturah.dev@gmail.com.
 
-## Link to GitHub Pages
-[PROJECT NAME](https://spodolak.github.io/water-tracker/)
+## License
 
-## Support and Contact Details
+This HTML web page is licensed under the MIT license.
 
-_For any questions or comments please contact:_ Stephanie Podolak
+## Copyright
 
-
-### License
-
-*This software is licensed under the MIT license*
-
-Copyright (c) 2020 **_Stephanie Podolak_**
+Copyright (c) 2020 Keturah Howard, Dana Luukko, Kristina Hengster Tintor and Stephanie Podolak.
