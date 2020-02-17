@@ -35,7 +35,7 @@ Created with JavaScript, CSS and HTML, this site is designed to ....
 * Node
 
 ## Link to GitHub Pages
-[PROJECT NAME](https://spodolak.github.io/PROJECT-TITLE/)
+[PROJECT NAME](https://spodolak.github.io/water-tracker/)
 
 ## Support and Contact Details
 
@@ -44,6 +44,6 @@ _For any questions or comments please contact:_ Stephanie Podolak
 
 ### License
 
-*{This software is licensed under the MIT license}*
+*This software is licensed under the MIT license*
 
-Copyright (c) 2020 **_{Stephanie Podolak}_**
+Copyright (c) 2020 **_Stephanie Podolak_**
