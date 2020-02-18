@@ -3,19 +3,6 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { gsap } from "gsap";
-
-gsap.registerPlugin();
-
-Draggable.create(".icon", {
-  bounds:"svg",
-  onDrag: function() {
-    if (this.hitTest("#bottle")) {
-      TweenLite.to(this.target, 0.6, {opacity:0, scale:0, svgOrigin:"400 400"});
-      // user.waterintake += bottleval
-    }
-  }
-});
 
 function displayWaterintake(name, age, body, region, activity) {
   console.log('gathered info:', name, age, body, region, activity );
@@ -48,14 +35,11 @@ $(document).ready(function() {
     //   body = $("#sex").val();
     // });
     $("#sex-or-bmi").change(function() {
-      if ($(this).val() == "yes") {
+      if ($(this).val() == "sex") {
         $('#otherFieldGroupDiv').show();
       } else {
         $('#otherFieldGroupDiv').hide();
-        $('#otherField1').removeAttr('required');
-        $('#otherField1').removeAttr('data-error');
-        $('#otherField2').removeAttr('required');
-        $('#otherField2').removeAttr('data-error');
+    
       }
     });
     $("#seeAnotherFieldGroup").trigger("change");
