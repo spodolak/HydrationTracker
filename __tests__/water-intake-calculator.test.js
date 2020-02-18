@@ -1,6 +1,4 @@
 import { IndividualWaterIntake } from "../src/water-intake-calculation";
-import { JestEnvironment } from "@jest/environment";
-import { exportAllDeclaration, jsxText } from "@babel/types";
 
 describe("IndividualWaterIntake", () => {
 	let individualWaterIntake;
@@ -55,7 +53,9 @@ describe("IndividualWaterIntake", () => {
 		individualWaterIntake.age = 25; 
 		individualWaterIntake.caffeineIntake = 3;
 		individualWaterIntake.activity = true; 		
+		individualWaterIntake.temperature = 90;
+		individualWaterIntake.humidity = 75;
 		individualWaterIntake.calculateHydrationGoal();
-		expect(individualWaterIntake.hydrationGoal).toEqual(14);
+		expect(individualWaterIntake.hydrationGoal).toEqual(16);
 	});
 });

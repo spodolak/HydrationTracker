@@ -61,14 +61,12 @@ export class IndividualWaterIntake {
 				this.hydrationGoal = 12;
 			}
 		}
-
 		//AGE FACTORS
 		if (this.age < 19 && this.gender === male) {
 			this.hydrationGoal -= 2;
 		} else if (this.age < 19 && this.gender === female) {
 			this.hydrationGoal-- ;
 		}
-
 		//CAFFEINE FACTORS
 		if (this.caffeineIntake >= 5 ) {
 			this.hydrationGoal += 5; 
@@ -77,23 +75,12 @@ export class IndividualWaterIntake {
 		} else if (this.caffeineIntake >=1 || this.caffeineIntake <= 2) {
 			this.hydrationGoal += 1;
 		}
-
 		//ACTIVITY FACTORS
 		if (this.activity === true) {
 			this.hydrationGoal++;
 		}
-
+		//ENVIRONMENT FACTORS
+		this.calculateEnvironmentFactors();
+		this.hydrationGoal += this.environmentFactors;
 	}
-
-	// setHydrationLevel() {
-	
-	// }
-
-	// setEnvironment() {
-
-	// }
-	
-	// calculateBMI() {
-	// 	return this.bmi;
-	// }
 }
