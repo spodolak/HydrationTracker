@@ -32,18 +32,6 @@ export class IndividualWaterIntake {
 		this.bmi = +((weight)*703/(height*height)).toFixed(1);
 	}
 
-	calculateEnvironmentFactors(temperature, humidity) {
-		if (temperature >= 85) {
-			this.environmentFactors++;
-		} 
-		if (humidity <= 45) {
-			this.environmentFactors++;
-		}
-		if (temperature >= 85 && humidity >= 70) {
-			this.environmentFactors += 2;
-		}
-	}
-
 	calculateHydrationGoal() {
 		//GENDER OR BMI FACTORS
 		if (this.gender === "male") {
@@ -52,7 +40,6 @@ export class IndividualWaterIntake {
 			this.hydrationGoal = 9;
 		} if (this.gender === false) {
 			this.calculateUserBmi(this.height, this.weight);
-			console.log(this.bmi);
 			if ( this.bmi < 25 ) {
 				this.hydrationGoal = 8;
 			} else if ( this.bmi >= 25.0 && this.bmi < 30) {
@@ -80,7 +67,14 @@ export class IndividualWaterIntake {
 			this.hydrationGoal++;
 		}
 		//ENVIRONMENT FACTORS
-		this.calculateEnvironmentFactors();
-		this.hydrationGoal += this.environmentFactors;
+		if (this.temperature >= 85) {
+			this.hydrationGoal++;
+		} 
+		if (this.temperature >= 85 && this.humidity >= 70) {
+			this.hydrationGoal += 1;
+		}
+		if (this.humidity <= 45) {
+			this.hydrationGoal++;
+		}
 	}
 }
