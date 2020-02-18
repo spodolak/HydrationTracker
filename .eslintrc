@@ -7,7 +7,8 @@
   "env": {
     "es6": true,
     "browser": true,
-    "jquery": true
+    "jquery": true,
+    "node": true
   },
   "rules": {
     "semi": 1,

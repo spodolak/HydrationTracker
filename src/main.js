@@ -4,7 +4,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { gsap } from 'gsap';
-
 Draggable.create(".icon", {
   bounds:"svg",
   onDrag: function() {
