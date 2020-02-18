@@ -47,18 +47,21 @@ $(document).ready(function() {
     let sex = $("#sex").val();
     let weight = $("#weight").val();
     let height = $("#height").val();
-    let location = $("#location").val();
+    let city = $("#city").val();
+    let state = $("#state").val();
     let activity = $("#activity").val();
     let caffeineIntake = $("#coffee").val();
-
-    user.addUserInput(age, sex, height, weight, caffeineIntake, activity, location)
-    console.log('users info', user.age, user.gender, user.height, user.weight, user.caffeineIntake, user.activity, user.location)
-    $(".users-name").html(name);
     $("#personal-info").hide();
     $("form#goal").show();
+    $(".users-name").html(name);
+
+    user.addUserInput(age, sex, height, weight, caffeineIntake, activity, city, state)
+    user.calculateUserBmi() //provide bmi property to user
+    user.calculateHydrationGoal() //calculate hydration suggestions based off user properties
+    console.log('now user bmi is:', user.bmi);
     
 
-    displayWaterintake(name, age, sex, height, weight, location, activity); 
+    displayWaterintake(name, age, sex, height, weight, city, state, activity); 
     });
   $("#goal").submit(function(event) {
     event.preventDefault();
