@@ -1,46 +1,19 @@
 //Weather Service Business Logic
- class WeatherService {
+ export class WeatherService {
   async getWeatherByZip(zip) {
     try {
-      let response = await fetch(`api.openweathermap.org/data/2.5/weather?zip=${zip},&appid={process.env.API_KEY}`);
+      let response = await fetch(`api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=761d5c2bc936d3c8372d3bddb84020f0`);
       let jsonifiedResponse;
-      if(response.ok && response.status == 200) {
+      if (response.ok && response.status == 200) {
         jsonifiedResponse = await response.json();
-      }else{
+      } else {
         jsonifiedResponse = false;
       }
       return jsonifiedResponse;
-  } catch {
+    } catch(error) {
       return false;
     }
   }
 }
 
 
-//UI logic
-$(document).ready(function() {
-  alert("hi!");
-  // const zip = $("#zip-code").val();
-  const zip = 97209;
-  // $("#zip-code").val("");
-
-  (async () => {
-    let weatherService = new WeatherService();
-    const response = await weatherService.getWeatherByZip(zip);
-    console.log(response.main.humidity);
-    // getElements(response);
-  
-  })();
-  
-  function getElements(response) {
-    if(response) {
-      $("body").text(`${response.main.humidity}%`);  
-      // $(".showTemp").text(`${response.main.temp}degrees.`);
-    }else{
-      $(".showHumidity").text(`There was an error handling your request.`);
-      // $(".showTemp").text(`Please check yoiur inputs and try again!`);
-    }
-  }
-
-
-});
