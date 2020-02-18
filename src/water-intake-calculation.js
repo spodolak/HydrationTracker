@@ -13,8 +13,10 @@ export class IndividualWaterIntake {
 	
 		//CALCULATED IN BACK END
 		this.bmi;
-		this.environment;
-		this.hydrationGoal;
+		this.environmentFactors = 0;
+		this.temperature;
+		this.humidity;
+		this.hydrationGoal = 0;
 		this.currentHydrationLevel = 0;
 	}
 
@@ -31,6 +33,19 @@ export class IndividualWaterIntake {
 	calculateUserBmi(height, weight) {
 		this.bmi = +((weight)*703/(height*height)).toFixed(1);
 	}
+
+	calculateEnvironmentFactors(temperature, humidity) {
+		if (temperature >= 85) {
+			this.environmentFactors++;
+		} 
+		if (humidity <= 45) {
+			this.environmentFactors++;
+		}
+		if (temperature >= 85 && humidity >= 70) {
+			this.environmentFactors += 2;
+		}
+	}
+
 	// calculateHydrationGoal() {
 	// 	//GENDER OR BMI FACTORS
 	// 	if (this.gender === male) {

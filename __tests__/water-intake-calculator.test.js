@@ -42,4 +42,11 @@ describe("IndividualWaterIntake", () => {
 		individualWaterIntake.calculateUserBmi(69, 170);
 		expect(individualWaterIntake.bmi).toEqual(25.1)
 	});  
+
+	test("should calculate user environmental factors", () => {
+		individualWaterIntake.calculateEnvironmentFactors(85, 75);
+		expect(individualWaterIntake.environmentFactors).toEqual(3);
+	});
+
+	
 });
