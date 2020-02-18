@@ -28,6 +28,9 @@ export class IndividualWaterIntake {
 		this.location = location;
 	}
 
+	calculateBMI(height, weight) {
+		return (weight)*703/(height*height);
+	}
 	// calculateHydrationGoal() {
 	// 	//GENDER OR BMI FACTORS
 	// 	if (this.gender === male) {

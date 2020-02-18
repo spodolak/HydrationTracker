@@ -35,4 +35,10 @@ describe("IndividualWaterIntake", () => {
 		expect(individualWaterIntake.activity).toEqual(false);
 		expect(individualWaterIntake.location).toEqual(90210);
 	});
+
+	test("should calculate user bmi", () => {
+		individualWaterIntake.height = 69;
+		individualWaterIntake.weight = 170;
+		expect(individualWaterIntake.bmi).toEqual(24.4)
+	});  
 });
