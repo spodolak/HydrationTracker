@@ -49,9 +49,9 @@ export class IndividualWaterIntake {
 			}
 		}
 		//AGE FACTORS
-		if (this.age < 19 && this.gender === male) {
+		if (this.age < 19 && this.gender === "male") {
 			this.hydrationGoal -= 2;
-		} else if (this.age < 19 && this.gender === female) {
+		} else if (this.age < 19 && this.gender === "female") {
 			this.hydrationGoal-- ;
 		}
 		//CAFFEINE FACTORS
