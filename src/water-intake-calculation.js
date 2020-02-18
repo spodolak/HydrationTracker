@@ -7,7 +7,8 @@ export class IndividualWaterIntake {
 		this.weight;
 		this.caffeineIntake;
 		this.activity;
-		this.location;
+		this.city;
+		this.state;
 	
 		//CALCULATED IN BACK END
 		this.bmi;
@@ -18,14 +19,15 @@ export class IndividualWaterIntake {
 		this.currentHydrationLevel = 0;
 	}
 
-	addUserInput(age, gender, height, weight, caffeineIntake, activity, location) {
+	addUserInput(age, gender, height, weight, caffeineIntake, activity, city, state) {
 		this.age = age;
 		this.gender = gender;
 		this.height = height;
 		this.weight = weight;
 		this.caffeineIntake = caffeineIntake;
 		this.activity = activity;
-		this.location = location;
+		this.city = city;
+		this.state = state;
 	}
 
 	calculateUserBmi(height, weight) {
@@ -67,10 +69,11 @@ export class IndividualWaterIntake {
 			this.hydrationGoal++;
 		}
 		//ENVIRONMENT FACTORS
-		if (this.temperature >= 85) {
+		if (this.temperature >= 302) {
+			console.log(IndividualWaterIntake.temperature);
 			this.hydrationGoal++;
 		} 
-		if (this.temperature >= 85 && this.humidity >= 70) {
+		if (this.temperature >= 302 && this.humidity >= 70) {
 			this.hydrationGoal += 1;
 		}
 		if (this.humidity <= 45) {
