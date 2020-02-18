@@ -7,3 +7,21 @@ form#goal {
 .bmi {
   display: none;
 }
+/* //animation styles */
+body {
+  margin:0;
+  background: #333;
+   text-align:center;
+   color:rgb(221, 221, 221);
+   font-family: Signika Negative, Asap, sans-serif;
+ }
+ 
+ svg {
+   display:block;
+   position:relative;
+   width:400px;
+   height:400px;
+   background:#1d1d1d;
+   
+   margin:20px auto;
+ }
