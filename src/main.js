@@ -4,6 +4,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { gsap } from 'gsap';
+
 Draggable.create(".icon", {
   bounds:"svg",
   onDrag: function() {
@@ -22,6 +23,19 @@ function displayWaterintake(name, age, body, region, activity) {
 }
 
 $(document).ready(function() {
+  $("#sex-or-bmi").change(function() {
+    if ($(this).val() === "bmi") {
+      $(".bmi").show();
+      $(".sexs").hide();
+    } else {
+      $(".bmi").hide();
+      $(".sexs").show();
+    }
+  });
+  let it = $("#sex-or-bmi")
+  it.trigger("change");
+  console.log('it:', it )
+
   $("#personal-info").submit(function(event) {
     event.preventDefault();
     let name = $("#name").val();
@@ -45,14 +59,17 @@ $(document).ready(function() {
     //   body = $("#sex").val();
     // });
     $("#sex-or-bmi").change(function() {
-      if ($(this).val() == "sex") {
-        $('#otherFieldGroupDiv').show();
+      if ($(this).val() === "bmi") {
+        $(".bmi").show();
+        $(".sexs").hide();
       } else {
-        $('#otherFieldGroupDiv').hide();
-    
+        $(".bmi").hide();
+        $(".sexs").show();
       }
     });
-    $("#seeAnotherFieldGroup").trigger("change");
+    let it = $("#sex-or-bmi")
+    it.trigger("change");
+    console.log('it:', it )
     // ----------------------------------------------------
     
     displayWaterintake(name, age, body, region, activity); 
