@@ -67,7 +67,7 @@ $(document).ready(function() {
     $("#goal").hide();
     $(".tracking").show();
 
-    console.log('gathered info:', goal, waterBottle);
+    console.log('more gathered info:', goal, waterBottle);
   });
 });
 
