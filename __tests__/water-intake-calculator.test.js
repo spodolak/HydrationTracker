@@ -48,5 +48,14 @@ describe("IndividualWaterIntake", () => {
 		expect(individualWaterIntake.environmentFactors).toEqual(3);
 	});
 
-	
+	test("should calculate hydration goal", () => {
+		individualWaterIntake.gender = false;
+		individualWaterIntake.height = 67;
+		individualWaterIntake.weight = 180;
+		individualWaterIntake.age = 25; 
+		individualWaterIntake.caffeineIntake = 3;
+		individualWaterIntake.activity = true; 		
+		individualWaterIntake.calculateHydrationGoal();
+		expect(individualWaterIntake.hydrationGoal).toEqual(14);
+	});
 });
