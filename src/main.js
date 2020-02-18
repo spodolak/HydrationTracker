@@ -1,4 +1,4 @@
-// import { IndividualWaterIntake } from './water-intake-calculations';
+import { IndividualWaterIntake } from './water-intake-calculation.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,58 +22,44 @@ function displayWaterintake(name, age, body, region, activity) {
   // depending on what works best
 }
 
-$(document).ready(function() {
-  $("#sex-or-bmi").change(function() {
-    if ($(this).val() === "bmi") {
-      $(".bmi").show();
-      $(".sexs").hide();
-    } else {
-      $(".bmi").hide();
-      $(".sexs").show();
-    }
-  });
-  let it = $("#sex-or-bmi")
-  it.trigger("change");
-  console.log('it:', it )
+function changeHowtoCalculate() {
+$("#sex-or-bmi").change(function() {
+  if ($(this).val() === "bmi") {
+    $(".bmi").show();
+    $(".sexs").hide();
+  } else {
+    $(".bmi").hide();
+    $(".sexs").show();
+  }
+});
+let it = $("#sex-or-bmi")
+it.trigger("change");
+console.log('it:', it )
+} 
 
+$(document).ready(function() {
+  let user = new IndividualWaterIntake();
+  changeHowtoCalculate()
   $("#personal-info").submit(function(event) {
     event.preventDefault();
     let name = $("#name").val();
     let age = $("#age").val();
-    let body;
-    let region = $("#location").val();
+    let sex = $("#sex").val();
+    let weight = $("#weight").val();
+    let height = $("#height").val();
+    let location = $("#location").val();
     let activity = $("#activity").val();
+    let caffeineIntake = $("#coffee").val();
+
+    user.addUserInput(age, sex, height, weight, caffeineIntake, activity, location)
+    console.log('users info', user.age, user.gender, user.height, user.weight, user.caffeineIntake, user.activity, user.location)
     $(".users-name").html(name);
     $("#personal-info").hide();
     $("form#goal").show();
-
-    //// WORK IN PROGRESS --------------------------------
-    // $("#calcBySex").click(function() {
-    //   $("div.sexs").show()
-    //   $("div.bmi").hide()
-    //   body = $("#sex").val();
-    // });
-    // $("#calcByBmi").click(function() {
-    //   $("div.sexs").hide()
-    //   $("div.bmi").show()
-    //   body = $("#sex").val();
-    // });
-    $("#sex-or-bmi").change(function() {
-      if ($(this).val() === "bmi") {
-        $(".bmi").show();
-        $(".sexs").hide();
-      } else {
-        $(".bmi").hide();
-        $(".sexs").show();
-      }
-    });
-    let it = $("#sex-or-bmi")
-    it.trigger("change");
-    console.log('it:', it )
-    // ----------------------------------------------------
     
-    displayWaterintake(name, age, body, region, activity); 
-  });
+
+    displayWaterintake(name, age, sex, height, weight, location, activity); 
+    });
   $("#goal").submit(function(event) {
     event.preventDefault();
     let goal = $("#daily-goal").val();
@@ -81,6 +67,12 @@ $(document).ready(function() {
     $("#goal").hide();
     $(".tracking").show();
 
-    console.log('gathered info:', goal, waterBottle);
+    console.log('more gathered info:', goal, waterBottle);
   });
 });
+
+
+
+
+
+

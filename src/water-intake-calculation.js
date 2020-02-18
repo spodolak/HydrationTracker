@@ -38,7 +38,7 @@ export class IndividualWaterIntake {
 			this.hydrationGoal = 13;
 		} else if (this.gender === "female") {
 			this.hydrationGoal = 9;
-		} if (this.gender === false) {
+		} if (this.gender === '') {
 			this.calculateUserBmi(this.height, this.weight);
 			if ( this.bmi < 25 ) {
 				this.hydrationGoal = 8;
