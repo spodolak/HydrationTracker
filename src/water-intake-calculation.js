@@ -1,3 +1,5 @@
+import { getHeapStatistics } from "v8";
+
 export class IndividualWaterIntake {
 	constructor() {
 		//COLLECTED FROM USER
@@ -14,6 +16,16 @@ export class IndividualWaterIntake {
 		this.environment;
 		this.hydrationGoal;
 		this.currentHydrationLevel = 0;
+	}
+
+	addUserInput(age, gender, height, weight, caffeineIntake, activity, location) {
+		this.age = age;
+		this.gender = gender;
+		this.height = height;
+		this.weight = weight;
+		this.caffeineIntake = caffeineIntake;
+		this.activity = activity;
+		this.location = location;
 	}
 
 	// calculateHydrationGoal() {

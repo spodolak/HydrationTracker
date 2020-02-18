@@ -24,4 +24,15 @@ describe("IndividualWaterIntake", () => {
 		expect(individualWaterIntake.activity).toEqual(true);
 		expect(individualWaterIntake.location).toEqual(92346);
 	}); 
+
+	test("should create a method that adds user input to IndividualWaterIntake object", () => {
+		individualWaterIntake.addUserInput(55, "male", 70, 200, 1, false, 90210);
+		expect(individualWaterIntake.age).toEqual(55);
+		expect(individualWaterIntake.gender).toEqual("male");
+		expect(individualWaterIntake.height).toEqual(70);
+		expect(individualWaterIntake.weight).toEqual(200);
+		expect(individualWaterIntake.caffeineIntake).toEqual(1);
+		expect(individualWaterIntake.activity).toEqual(false);
+		expect(individualWaterIntake.location).toEqual(90210);
+	});
 });
