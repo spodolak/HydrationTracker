@@ -6,7 +6,6 @@ import './styles.css';
 import { WeatherService } from './weather-service.js';
 import { gsap } from 'gsap';
 //DRAGABILITY ----------------------------------------------------------
-//DRAGABILITY ----------------------------------------------------------
 Draggable.create(".icon", {
   bounds:"svg",
 
@@ -100,9 +99,4 @@ $(document).ready(function() {
     console.log('more gathered info:', goal, waterBottle);
   });
 });
-
-
-
-
-
 
