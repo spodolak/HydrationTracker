@@ -54,7 +54,7 @@ describe("IndividualWaterIntake", () => {
 		individualWaterIntake.temperature = 306;
 		individualWaterIntake.humidity = 25;
 		individualWaterIntake.calculateHydrationGoal();
-		expect(individualWaterIntake.hydrationGoal).toEqual(15);
+		expect(individualWaterIntake.hydrationGoal).toEqual(120);
 	});
 
 	test("should convert cups to ounces", () => {
