@@ -6,7 +6,6 @@ import './styles.css';
 import { WeatherService } from './weather-service.js';
 import { gsap } from 'gsap';
 //DRAGABILITY ----------------------------------------------------------
-//DRAGABILITY ----------------------------------------------------------
 Draggable.create(".icon", {
   bounds:"svg",
 
@@ -92,17 +91,14 @@ $(document).ready(function() {
     });
   $("#goal").submit(function(event) {
     event.preventDefault();
+    $("#hydrationGoal").html(user.hydrationGoal);
     let goal = $("#daily-goal").val();
     let waterBottle = $("#waterbottle").val();
     $("#goal").hide();
     $(".tracking").show();
+    
 
     console.log('more gathered info:', goal, waterBottle);
   });
 });
-
-
-
-
-
 
