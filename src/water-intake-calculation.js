@@ -65,7 +65,7 @@ export class IndividualWaterIntake {
 			this.hydrationGoal += 1;
 		}
 		//ACTIVITY FACTORS
-		if (this.activity === true) {
+		if (this.activity === "true") {
 			this.hydrationGoal++;
 		}
 		//ENVIRONMENT FACTORS
