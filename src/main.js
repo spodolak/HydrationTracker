@@ -52,9 +52,13 @@ console.log('it:', it )
 
 function addHydrate(user, ozs) {
   user.currentHydrationLevel = user.currentHydrationLevel += ozs
+  console.log('hydratations',user.currentHydrationLevel);
   $("#currentHydro").html(user.currentHydrationLevel);
   // progress bar manip
-  user.currentHydrationLevel / hydrationGoal
+  let percentHydro =  (user.currentHydrationLevel / user.hydrationGoal ) * 100
+  console.log('percent',percentHydro)
+  // let percentHydro = user.currentHydrationLevel 
+  $('#bar').css("width", percentHydro + "%");
   reachedGoal(user);
 }
 

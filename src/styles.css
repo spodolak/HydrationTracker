@@ -54,6 +54,9 @@
   .bmi {
     display: none;
   }
+  .track {
+    display: none;
+  }
   #select-water-amount {
     display: none;
   }
