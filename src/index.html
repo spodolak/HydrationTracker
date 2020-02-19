@@ -142,7 +142,7 @@
 								</select>
 							</div>
 						</div>
-						<button type="submit" id="button">Submit info!</button>
+						<button type="submit" class="button">Submit info!</button>
 					</form>
 					<div class="large-12 medium-12 small-12">
 						<form id="goal">
@@ -153,13 +153,14 @@
 							<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
 							<input class="form-style" id="waterbottle" type="text"><br>
 							<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)</p><br>
-							<button type="submit" id="button">Start Tracking!</button>
+							<button type="submit" class="button">Start Tracking!</button>
 						</form>
 					</div>
 				</div>
 				<div class="track">
 					<hr>
 					<h2><span class="users-name"></span>'s water</h2>
+					<h3>Your goal is to drink<span id="usersGoal"></span> oz's of water!</h3>
 					<!-- //keep this sucker closed (twirl it) -->
 					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 						x="0px" y="0px" viewBox="0 0 800 430" style="enable-background:new 0 0 800 430;" xml:space="preserve">
@@ -424,12 +425,12 @@
 					</svg>
 				</div>
 				<div class="pitcher"></div>
-				<!--where total water consumption is recorded-->
+          <p>you've had <span id="currentHydro"></span></p>
 				<div class="bottle"></div>
 				<!--draggable div-->
-				<button class="add-water" id="button">add water</button>
 				<div class="adding-water">
-					<form action="add-water">
+          <button id="addWaterButton" class="button">add water</button>
+					<form action="select water amount">
 						<label for="">select amount in oz</label>
 						<input class="form-style" type="number" id="quantity" name="quantity" min="4" max="36">
 					</form>
