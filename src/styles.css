@@ -32,7 +32,7 @@
     margin-right: 30px;
     height: 40px;
   }
-  #button {
+  .button {
     align-self: center;
     border-radius: 7px;
     border: 2px solid #9ea551;
@@ -52,6 +52,9 @@
     display: none;
   }
   .bmi {
+    display: none;
+  }
+  #select-water-amount {
     display: none;
   }
   /* //animation styles */
