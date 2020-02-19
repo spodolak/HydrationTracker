@@ -424,17 +424,18 @@
 						</g>
 					</svg>
 				</div>
-				<div class="pitcher"></div>
+				<div class="pitcher">
           <p>you've had <span id="currentHydro"></span></p>
-				<div class="bottle"></div>
-				<!--draggable div-->
-				<div class="adding-water">
-          <button id="addWaterButton" class="button">add water</button>
-					<form action="select water amount">
-						<label for="">select amount in oz</label>
-						<input class="form-style" type="number" id="quantity" name="quantity" min="4" max="36">
-					</form>
-				</div>
+        </div>
+				<div class="bottle">
+          <p>Your waterbottle (<span id="usersBottle"></span> oz's)</p>
+        </div>
+        <button id="addWaterButton" class="button">add water</button>
+        <form id="select-water-amount">
+          <label>select amount in oz</label>
+          <input class="form-style" type="number" id="quantity" name="quantity" min="4" >
+          <button type="submit">add water</button>
+        </form>
 				<div class="Aquarium">
 					<div id="bubbles">
 						<div class="bubble x1"></div>
