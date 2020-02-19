@@ -8,7 +8,8 @@
   
   body {
     margin:0;
-    background: #82A9B5;
+    /* background: #82A9B5; */
+    background: #7690b5;
     text-align:center;
     color:rgb(247, 228, 228);
     font-family: 'Inconsolata', monospace;
@@ -16,7 +17,8 @@
    }
   
    .jumbotron {
-    background: #82A9B5;
+    /* background: #82A9B5; */
+    background: #7690b5;
    }
 
    h1, h2, h3 {
@@ -29,7 +31,7 @@
   }
   
   label {
-    color: #EAA35D;
+    color: #EBAB6B;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
   }
