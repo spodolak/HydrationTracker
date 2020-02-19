@@ -5,652 +5,453 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/CSSRulePlugin.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/Draggable.min.js"></script>
+	<!-- Compressed Foundation CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css"
+		integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg=="
+		crossorigin="anonymous">
+
+	<!-- Compressed Foundation JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"
+		integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
+		crossorigin="anonymous"></script>
+		<!-- Google Font -->
+		<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Inconsolata&display=swap" rel="stylesheet">
 	<title>Water Tracker</title>
 </head>
 
 <body>
-	<div class="container">
-		<h1>Hydration Aquarium</h1>
-		<div class="start">
-			<form id="personal-info">
-				<h2>Hello! Welcome to Hydrations aquarium!</h2>
-				<p>Here I am tellin you about how the app works, and instructing you to fill in the information below to
-					start We will use this information to suggest an array of water intakes.</p>
-				<!-- person's information -->
-				<label for="name">Enter your name!</label><br>
-				<input id="name" type="text"><br>
-				<label for="age">age</label><br>
-				<input id="age" type="text"><br>
-				<label for="sex">choose how you want your water intake to be calculated</label><br>
-				<select class="form-control" id="sex-or-bmi">
-					<option value="sex">sex</option>
-					<option value="bmi">bmi</option>
-				</select>
-				<div class="sexs">
-					<label>Please select your sex</label>
-					<select class="form-control" id="sex">
-						<option></option>
-						<option>male</option>
-						<option>female</option>
-					</select>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="large-12 cell">
+				<h1>Hydration Aquarium</h1>
+				<div class="start">
+					<form id="personal-info">
+						<h2>Hello! Welcome to Hydrations aquarium!</h2>
+						<p>Here I am tellin you about how the app works, and instructing you to fill in the information below to
+							start We will use this information to suggest an array of water intakes.</p>
+						<!-- person's information -->
+						<div class="grid-x grid-padding-x">
+							<div class="large-6 medium-6 small-6 cell">
+								<label for="name">Enter your name!</label><br>
+								<input class="form-style" id="name" type="text"><br>
+							</div>
+							<div class="large-6 medium-6 small-6 cell">
+									<label for="age">age</label><br>
+									<input class="form-style" id="age" type="text"><br>
+							</div>
+						</div>
+						<div class="grid-x grid-padding-x">
+							<div class="large-4 medium-12 small-12 cell">
+								<h3 for="location">Choose calculation style!</h3>
+								<label for="sex">how you want your water intake to be calculated</label><br>
+								<select class="form-control form-style" id="sex-or-bmi">
+									<option class="form-style"  value="sex">sex</option>
+									<option class="form-style" value="bmi">bmi</option>
+								</select>
+								<br>
+								<div class="sexs">
+									<label>Please select your sex</label>
+									<select class="form-control form-style" id="sex">
+										<option></option>
+										<option>male</option>
+										<option>female</option>
+									</select>
+								</div>
+								<div class="bmi">
+									<label for="height">your height in inches</label>
+									<input class="form-style" id="height" type="number">
+									<label for="weight">your weight in pounds</label>
+									<input class="form-style" id="weight" type="number">
+								</div>
+							</div>
+							<div class="large-4 medium-12 small-12 cell">
+								<h3 for="location">Enter your lifestyle info!</h3>
+								<label> Amount of coffee intake</label>
+								<select class="form-control form-style" id="coffee">
+									<option value="0">0</option>
+									<option value="1">1 - 2</option>
+									<option value="3">3 - 4</option>
+									<option value="5">5+</option>
+								</select>
+								<br>
+								<label for="activity level">activity level</label><br>
+								<select class="form-control form-style" id="activity">
+								<option value="false">no</option>
+								<option value="true">yes</option>
+								</select>
+
+							</div>
+							<div class="large-4 medium-12 small-12 cell">
+								<!-- city/state -->
+								<h3 for="location">Enter your location!</h3>
+								<label form-style for="city">city</label>
+								<input class="form-style" id="city" type="text">
+								<label id="special-margin" for="state">state</label>
+								<select class="form-style" id="state">
+									<option value="AL">Alabama</option>
+									<option value="AK">Alaska</option>
+									<option value="AZ">Arizona</option>
+									<option value="AR">Arkansas</option>
+									<option value="CA">California</option>
+									<option value="CO">Colorado</option>
+									<option value="CT">Connecticut</option>
+									<option value="DE">Delaware</option>
+									<option value="DC">District Of Columbia</option>
+									<option value="FL">Florida</option>
+									<option value="GA">Georgia</option>
+									<option value="HI">Hawaii</option>
+									<option value="ID">Idaho</option>
+									<option value="IL">Illinois</option>
+									<option value="IN">Indiana</option>
+									<option value="IA">Iowa</option>
+									<option value="KS">Kansas</option>
+									<option value="KY">Kentucky</option>
+									<option value="LA">Louisiana</option>
+									<option value="ME">Maine</option>
+									<option value="MD">Maryland</option>
+									<option value="MA">Massachusetts</option>
+									<option value="MI">Michigan</option>
+									<option value="MN">Minnesota</option>
+									<option value="MS">Mississippi</option>
+									<option value="MO">Missouri</option>
+									<option value="MT">Montana</option>
+									<option value="NE">Nebraska</option>
+									<option value="NV">Nevada</option>
+									<option value="NH">New Hampshire</option>
+									<option value="NJ">New Jersey</option>
+									<option value="NM">New Mexico</option>
+									<option value="NY">New York</option>
+									<option value="NC">North Carolina</option>
+									<option value="ND">North Dakota</option>
+									<option value="OH">Ohio</option>
+									<option value="OK">Oklahoma</option>
+									<option value="OR">Oregon</option>
+									<option value="PA">Pennsylvania</option>
+									<option value="RI">Rhode Island</option>
+									<option value="SC">South Carolina</option>
+									<option value="SD">South Dakota</option>
+									<option value="TN">Tennessee</option>
+									<option value="TX">Texas</option>
+									<option value="UT">Utah</option>
+									<option value="VT">Vermont</option>
+									<option value="VA">Virginia</option>
+									<option value="WA">Washington</option>
+									<option value="WV">West Virginia</option>
+									<option value="WI">Wisconsin</option>
+									<option value="WY">Wyoming</option>
+								</select>
+							</div>
+						</div>
+						<button type="submit" id="button">Submit info!</button>
+					</form>
+					<div class="large-12 medium-12 small-12">
+						<form id="goal">
+							<h2>Set Personal Goal</h2>
+							<p>based off your information, <span id="hydrationGoal"></span> cups of water is your recommended water intake! With this given info, personalize your daily goal to be .</p>
+							<label for="daily goal">Enter your daily goal:</label><br>
+							<input class="form-style" id="daily-goal" type="text"><br>
+							<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
+							<input class="form-style" id="waterbottle" type="text"><br>
+							<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)</p><br>
+							<button type="submit" id="button">Start Tracking!</button>
+						</form>
+					</div>
 				</div>
-				<div class="bmi">
-					<label for="height">your height in inches</label>
-					<input id="height" type="number">
-					<label for="weight">your weight in pounds</label>
-					<input id="weight" type="number">
+				<div class="track">
+					<hr>
+					<h2><span class="users-name"></span>'s water</h2>
+					<!-- //keep this sucker closed (twirl it) -->
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+						x="0px" y="0px" viewBox="0 0 800 430" style="enable-background:new 0 0 800 430;" xml:space="preserve">
+						<style type="text/css">
+						</style>
+						<g id="bottle">
+							<?xml version="1.0" encoding="iso-8859-1"?>
+							<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+								<polygon style="fill:#00AE95;" points="328.956,106.318 343.895,130.979 343.895,145.879 168.103,145.879 168.103,130.979 
+								183.042,106.318 183.042,94.501 328.956,94.501 " />
+								<polygon style="fill:#008E76;" points="213.869,106.318 213.869,94.501 183.042,94.501 183.042,106.318 168.103,130.979 
+								168.103,145.879 198.93,145.879 198.93,130.979 " />
+								<rect x="168.099" y="187.5" style="fill:#00AE95;" width="175.79" height="116.63" />
+								<rect x="168.099" y="187.5" style="fill:#008E76;" width="30.827" height="116.63" />
+								<path style="fill:#D4D2D3;" d="M274.236,61.961h-36.474V12.056c0-2.516,2.04-4.556,4.556-4.556h27.362
+								c2.516,0,4.556,2.04,4.556,4.556V61.961z" />
+								<path style="fill:#BFBEBE;" d="M259.787,7.5h-17.469c-2.516,0-4.556,2.04-4.556,4.556v49.905h17.469V12.056
+								C255.231,9.54,257.271,7.5,259.787,7.5z" />
+								<path style="fill:#EFEDEE;" d="M330.241,106.318H181.757c-3.831,0-6.936-3.105-6.936-6.936v-44.7c0-3.831,3.105-6.936,6.936-6.936
+								H330.24c3.831,0,6.936,3.105,6.936,6.936v44.699C337.177,103.212,334.071,106.318,330.241,106.318z" />
+								<path style="fill:#D4D2D3;" d="M205.648,99.382v-44.7c0-3.831,3.105-6.936,6.936-6.936h-30.827c-3.831,0-6.936,3.105-6.936,6.936
+								v44.699c0,3.831,3.105,6.936,6.936,6.936h30.827C208.754,106.318,205.648,103.212,205.648,99.382z" />
+								<path style="fill:#2FC8B4;" d="M343.895,230.653H168.103c-3.71,0-6.718-3.008-6.718-6.718v-86.238c0-3.71,3.008-6.718,6.718-6.718
+								h175.792c3.71,0,6.718,3.008,6.718,6.718v86.238C350.613,227.646,347.605,230.653,343.895,230.653z" />
+								<path style="fill:#00AE95;" d="M192.212,223.935v-86.238c0-3.71,3.008-6.718,6.718-6.718h-30.827c-3.71,0-6.718,3.008-6.718,6.718
+								v86.238c0,3.71,3.008,6.718,6.718,6.718h30.827C195.22,230.653,192.212,227.646,192.212,223.935z" />
+								<path style="fill:#2FC8B4;" d="M330.023,504.5H181.975c-11.372,0-20.59-9.219-20.59-20.59V288.236c0-3.71,3.008-6.718,6.718-6.718
+								h175.792c3.71,0,6.718,3.008,6.718,6.718V483.91C350.613,495.281,341.394,504.5,330.023,504.5z" />
+								<path style="fill:#00AE95;" d="M192.212,497.782V288.236c0-3.71,3.008-6.718,6.718-6.718h-30.827c-3.71,0-6.718,3.008-6.718,6.718
+								V483.91c0,11.372,9.219,20.59,20.59,20.59h16.955C195.22,504.5,192.212,501.492,192.212,497.782z" />
+								<path d="M358.113,223.935v-86.238c0-6.182-3.973-11.44-9.493-13.394l-8.653-14.285c2.886-2.641,4.71-6.425,4.71-10.637V54.683
+								c0-7.96-6.476-14.436-14.436-14.436h-48.505V15h17.162c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H269.68h-27.361h-29.218
+								c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h17.162v25.247h-48.505c-7.96,0-14.436,6.476-14.436,14.436v44.699
+								c0,4.211,1.824,7.995,4.71,10.637l-8.653,14.285c-5.521,1.954-9.493,7.212-9.493,13.394v86.238c0,5.085,2.693,9.543,6.718,12.057
+								v40.188c-4.026,2.513-6.718,6.971-6.718,12.056V483.91c0,15.489,12.601,28.09,28.09,28.09h148.048
+								c15.489,0,28.09-12.601,28.09-28.09V288.236c0-5.085-2.693-9.543-6.718-12.056v-40.188
+								C355.421,233.478,358.113,229.021,358.113,223.935z M324.73,113.818l5.853,9.662H181.415l5.853-9.662H324.73z M168.885,223.153
+								v-84.674h174.229v84.674L168.885,223.153L168.885,223.153z M245.262,15h21.474v25.247h-21.474V15z M182.321,55.247h147.355v43.571
+								H182.321V55.247z M343.113,483.91c0,7.218-5.872,13.09-13.09,13.09H181.975c-7.218,0-13.09-5.872-13.09-13.09V289.018h116.012
+								c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H175.603v-35.865h160.792v35.865h-21.029c-4.142,0-7.5,3.358-7.5,7.5
+								s3.358,7.5,7.5,7.5h27.747V483.91z" />
+								<path
+									d="M276.496,439.607c-3.59-2.064-8.176-0.828-10.24,2.764c-2.107,3.665-6.037,5.941-10.257,5.941
+								c-4.219,0-8.149-2.277-10.257-5.942c-2.065-3.59-6.649-4.827-10.24-2.764c-3.591,2.064-4.828,6.649-2.764,10.24
+								c4.775,8.306,13.688,13.465,23.261,13.465s18.485-5.159,23.261-13.464C281.324,446.256,280.087,441.672,276.496,439.607z" />
+								<path d="M309.688,407.679c-4.142,0-7.5,3.358-7.5,7.5v11.355c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-11.355
+								C317.188,411.037,313.831,407.679,309.688,407.679z" />
+								<path d="M202.31,407.679c-4.142,0-7.5,3.358-7.5,7.5v11.355c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-11.355
+								C209.81,411.037,206.452,407.679,202.31,407.679z" />
+								<g>
+									<path style="fill:#EFEDEE;" d="M315.366,455.5h-11.355c-4.142,0-7.5-3.358-7.5-7.5s3.358-7.5,7.5-7.5h11.355
+										c4.142,0,7.5,3.358,7.5,7.5S319.508,455.5,315.366,455.5z" />
+									<path style="fill:#EFEDEE;" d="M207.987,455.5h-11.355c-4.142,0-7.5-3.358-7.5-7.5s3.358-7.5,7.5-7.5h11.355
+										c4.142,0,7.5,3.358,7.5,7.5S212.129,455.5,207.987,455.5z" />
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+								<g>
+								</g>
+							</svg>
+		
+						</g>
+		
+						<g id="water-drop" class="icon">
+		
+							<defs id="defs4">
+								<filter id="filter3848" x="-0.2" width="1.4" y="-0.2" height="1.4"
+									inkscape:menu-tooltip="Marbled transparency effect which conforms to image detected edges"
+									inkscape:menu="Image effects, transparent" inkscape:label="Marbled ink"
+									color-interpolation-filters="sRGB">
+									<feGaussianBlur id="feGaussianBlur3850" result="result9" in="SourceGraphic" stdDeviation="2" />
+									<feTurbulence id="feTurbulence3852" baseFrequency="0.06" numOctaves="10" type="fractalNoise"
+										result="result7" seed="0" />
+									<feColorMatrix id="feColorMatrix3854" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.5 -0.3 "
+										result="result5" />
+									<feComposite id="feComposite3856" in2="result5" in="result9" operator="out" result="result6" />
+									<feGaussianBlur id="feGaussianBlur3858" result="result10" stdDeviation="0.5" />
+									<feDisplacementMap id="feDisplacementMap3860" in2="result10" result="result4" scale="120"
+										yChannelSelector="G" xChannelSelector="A" in="result5" />
+									<feComposite id="feComposite3862" in2="result4" in="result9" operator="in" result="result2" />
+									<feComposite id="feComposite3864" in2="SourceGraphic" operator="in" in="result2"
+										result="fbSourceGraphic" />
+									<feBlend id="feBlend3866" in2="result2" mode="multiply" />
+								</filter>
+								<filter id="filter3868" x="-0.2" width="1.4" y="-0.2" height="1.4"
+									inkscape:menu-tooltip="Marbled transparency effect which conforms to image detected edges"
+									inkscape:menu="Image effects, transparent" inkscape:label="Marbled ink"
+									color-interpolation-filters="sRGB">
+									<feGaussianBlur id="feGaussianBlur3870" result="result9" in="SourceGraphic" stdDeviation="2" />
+									<feTurbulence id="feTurbulence3872" baseFrequency="0.06" numOctaves="10" type="fractalNoise"
+										result="result7" seed="0" />
+									<feColorMatrix id="feColorMatrix3874" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.5 -0.3 "
+										result="result5" />
+									<feComposite id="feComposite3876" in2="result5" in="result9" operator="out" result="result6" />
+									<feGaussianBlur id="feGaussianBlur3878" result="result10" stdDeviation="0.5" />
+									<feDisplacementMap id="feDisplacementMap3880" in2="result10" result="result4" scale="120"
+										yChannelSelector="G" xChannelSelector="A" in="result5" />
+									<feComposite id="feComposite3882" in2="result4" in="result9" operator="in" result="result2" />
+									<feComposite id="feComposite3884" in2="SourceGraphic" operator="in" in="result2"
+										result="fbSourceGraphic" />
+									<feBlend id="feBlend3886" in2="result2" mode="multiply" />
+								</filter>
+								<filter id="filter3888" x="-0.2" width="1.4" y="-0.2" height="1.4"
+									inkscape:menu-tooltip="Marbled transparency effect which conforms to image detected edges"
+									inkscape:menu="Image effects, transparent" inkscape:label="Marbled ink"
+									color-interpolation-filters="sRGB">
+									<feGaussianBlur id="feGaussianBlur3890" result="result9" in="SourceGraphic" stdDeviation="2" />
+									<feTurbulence id="feTurbulence3892" baseFrequency="0.06" numOctaves="10" type="fractalNoise"
+										result="result7" seed="0" />
+									<feColorMatrix id="feColorMatrix3894" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.5 -0.3 "
+										result="result5" />
+									<feComposite id="feComposite3896" in2="result5" in="result9" operator="out" result="result6" />
+									<feGaussianBlur id="feGaussianBlur3898" result="result10" stdDeviation="0.5" />
+									<feDisplacementMap id="feDisplacementMap3900" in2="result10" result="result4" scale="120"
+										yChannelSelector="G" xChannelSelector="A" in="result5" />
+									<feComposite id="feComposite3902" in2="result4" in="result9" operator="in" result="result2" />
+									<feComposite id="feComposite3904" in2="SourceGraphic" operator="in" in="result2"
+										result="fbSourceGraphic" />
+									<feBlend id="feBlend3906" in2="result2" mode="multiply" />
+								</filter>
+							</defs>
+							<sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0"
+								inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="2.2837517" inkscape:cx="105.45843"
+								inkscape:cy="119.54014" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false"
+								inkscape:window-width="1366" inkscape:window-height="768" inkscape:window-x="0" inkscape:window-y="0"
+								inkscape:window-maximized="0" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0"
+								fit-margin-bottom="0" />
+							<metadata id="metadata7">
+								<rdf:RDF>
+									<cc:Work rdf:about="">
+										<dc:format>image/svg+xml</dc:format>
+										<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+										<dc:title />
+									</cc:Work>
+								</rdf:RDF>
+							</metadata>
+							<g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1"
+								transform="translate(-343.37004,-530.36218)">
+								<g id="g3790" transform="matrix(-1,0,0,1,896.19029,-6.2417583)">
+									<path
+										style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#6b6bff;fill-opacity:1;stroke:none;stroke-width:4;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+										d="m 530.78125,618.11145 c -1.95034,0.14493 -3.07528,1.65553 -3.90625,3.21875 -0.83097,1.56322 -1.49261,3.53339 -2.09375,5.875 -1.56212,19.62367 -0.64122,34.73262 -8.21875,50.8125 -0.44657,1.01663 0.14923,2.35502 1.2035,2.70355 1.05428,0.34852 2.33039,-0.37106 2.57775,-1.45355 8.21031,-15.58801 6.70201,-31.8575 8.3125,-51.0625 0.55896,-2.17729 1.18557,-3.9382 1.75,-5 0.56443,-1.0618 0.94523,-1.1129 0.6875,-1.09375 1.0472,-0.0818 1.92556,-1.10905 1.84375,-2.15625 -0.0818,-1.0472 -1.10905,-1.92556 -2.15625,-1.84375 z"
+										id="path3786" inkscape:connector-curvature="0" sodipodi:nodetypes="csccsccscsc" />
+									<path sodipodi:type="arc"
+										style="fill:#6b6bff;fill-opacity:1;stroke:#6b6bff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+										id="path3788" sodipodi:cx="532.10986" sodipodi:cy="312.4379" sodipodi:rx="2.3406594"
+										sodipodi:ry="2.5357144"
+										d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
+										transform="translate(0,308.2677)" />
+								</g>
+								<path transform="translate(0,308.2677)" style="fill:#6b6bff;fill-opacity:1;stroke:none"
+									d="m 522,360.09448 c -3.5099,35.29932 -33.8025,75 -75.5,75 -41.6975,0 -72.49958,-19.45734 -72.76923,-69.92857 -0.34288,-64.17739 87.07173,-94.07143 55.76923,-143.07143 34.62607,18.41209 97.97933,82.894 92.5,138 z"
+									id="path2985" inkscape:connector-curvature="0" sodipodi:nodetypes="assca" />
+								<path sodipodi:nodetypes="ssscs" inkscape:connector-curvature="0" id="path3776"
+									d="m 516.92857,361.26481 c -5.27675,32.76616 -35.89977,69.18503 -71.20879,67.58791 -41.65491,-1.88416 -71.71936,-13.21558 -71.98901,-63.68681 -0.34288,-64.17739 87.07173,-94.07143 55.76923,-143.07143 34.62607,18.41209 96.13901,85.08265 87.42857,139.17033 z"
+									style="fill:#8484ff;fill-opacity:1;stroke:none" transform="translate(0,308.2677)" />
+								<path sodipodi:type="arc" style="fill:#00002b;fill-opacity:1;stroke:none" id="path3756" sodipodi:cx="426.5"
+									sodipodi:cy="336.59448" sodipodi:rx="10.5" sodipodi:ry="10.5"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									transform="translate(-2.3406593,309.82814)" />
+								<path transform="matrix(0.53558346,0,0,0.53558346,198.2687,469.07401)"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									sodipodi:ry="10.5" sodipodi:rx="10.5" sodipodi:cy="336.59448" sodipodi:cx="426.5" id="path3758"
+									style="fill:#ffffff;fill-opacity:1;stroke:none" sodipodi:type="arc" />
+								<path sodipodi:type="arc" style="fill:#ffffff;fill-opacity:1;stroke:none" id="path3760" sodipodi:cx="426.5"
+									sodipodi:cy="336.59448" sodipodi:rx="10.5" sodipodi:ry="10.5"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									transform="matrix(0.2755102,0,0,0.26005899,304.11851,553.45948)" />
+								<path transform="matrix(0.23614944,0,0,0.22290567,317.37171,571.42662)"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									sodipodi:ry="10.5" sodipodi:rx="10.5" sodipodi:cy="336.59448" sodipodi:cx="426.5" id="path3762"
+									style="fill:#ffffff;fill-opacity:1;stroke:none" sodipodi:type="arc" />
+								<path transform="translate(40.961541,309.82814)"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									sodipodi:ry="10.5" sodipodi:rx="10.5" sodipodi:cy="336.59448" sodipodi:cx="426.5" id="path3764"
+									style="fill:#00002b;fill-opacity:1;stroke:none" sodipodi:type="arc" />
+								<path sodipodi:type="arc" style="fill:#ffffff;fill-opacity:1;stroke:none" id="path3766" sodipodi:cx="426.5"
+									sodipodi:cy="336.59448" sodipodi:rx="10.5" sodipodi:ry="10.5"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									transform="matrix(0.53558346,0,0,0.53558346,241.5709,469.07401)" />
+								<path transform="matrix(0.2755102,0,0,0.26005899,347.42071,553.45948)"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									sodipodi:ry="10.5" sodipodi:rx="10.5" sodipodi:cy="336.59448" sodipodi:cx="426.5" id="path3768"
+									style="fill:#ffffff;fill-opacity:1;stroke:none" sodipodi:type="arc" />
+								<path sodipodi:type="arc" style="fill:#ffffff;fill-opacity:1;stroke:none" id="path3770" sodipodi:cx="426.5"
+									sodipodi:cy="336.59448" sodipodi:rx="10.5" sodipodi:ry="10.5"
+									d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
+									transform="matrix(0.23614944,0,0,0.22290567,360.67391,571.42662)" />
+								<path
+									style="fill:#00002b;fill-opacity:1;stroke:#00002b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+									d="m 417.02747,369.58899 c 19.46133,4.20782 42.60335,5.1157 61.63737,-1.17033 0.93222,9.20163 -13.11843,27.83071 -28.47803,28.47802 -14.3061,0.60291 -27.85884,-12.20169 -33.15934,-27.30769 z"
+									id="path3772" inkscape:connector-curvature="0" transform="translate(0,308.2677)"
+									sodipodi:nodetypes="ccsc" />
+								<path sodipodi:nodetypes="cscc" transform="translate(0,308.2677)" inkscape:connector-curvature="0"
+									id="path3774"
+									d="m 472.66574,383.31013 c 0.45331,0.45331 -13.1284,13.80059 -22.47893,13.58655 -3.95611,-0.0906 -11.53003,-2.33772 -11.53003,-2.33772 5.31274,-13.11963 17.58317,-14.72266 34.00896,-11.24883 z"
+									style="fill:#5f8dd3;fill-opacity:1;stroke:none" />
+								<path
+									style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#6b6bff;fill-opacity:1;stroke:none;stroke-width:4;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+									d="m 530.78125,618.11145 c -1.95034,0.14493 -3.07528,1.65553 -3.90625,3.21875 -0.83097,1.56322 -1.49261,3.53339 -2.09375,5.875 -1.20229,4.68322 -2.15248,10.82675 -3.03125,17.34375 -1.75755,13.034 -3.2914,27.73511 -5.1875,33.46875 a 2.0002,2.0002 0 1 0 3.78125,1.25 c 2.29703,-6.94604 3.63167,-21.25895 5.375,-34.1875 0.87166,-6.46427 1.81958,-12.52041 2.9375,-16.875 0.55896,-2.17729 1.18557,-3.9382 1.75,-5 0.56443,-1.0618 0.94523,-1.1129 0.6875,-1.09375 a 2.0060942,2.0060942 0 1 0 -0.3125,-4 z"
+									id="path3778" inkscape:connector-curvature="0" />
+								<path sodipodi:type="arc"
+									style="fill:#6b6bff;fill-opacity:1;stroke:#6b6bff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+									id="path3780" sodipodi:cx="532.10986" sodipodi:cy="312.4379" sodipodi:rx="2.3406594"
+									sodipodi:ry="2.5357144"
+									d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
+									transform="translate(0,308.2677)" />
+								<path transform="matrix(8.1488603,0,0,2.6923076,-3919.1031,-84.715096)"
+									style="fill:#6b6bff;fill-opacity:1;stroke:none"
+									d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
+									id="path3794" inkscape:connector-curvature="0" />
+								<path transform="matrix(8.1488603,0,0,2.6923076,-3854.3449,-83.154656)"
+									style="fill:#6b6bff;fill-opacity:1;stroke:none"
+									d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
+									id="path3796" inkscape:connector-curvature="0" />
+								<path id="path3800"
+									d="m 533.87604,312.1481 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -1.76618,-0.84548 -1.76618,-2.24591 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 1.76618,0.84548 1.76618,2.24592 z"
+									style="fill:#8484ff;fill-opacity:1;stroke:none;filter:url(#filter3868)"
+									transform="matrix(8.1488603,0,0,2.6923076,-3919.1031,-84.715096)" inkscape:connector-curvature="0"
+									sodipodi:nodetypes="sssss" />
+								<path id="path3802"
+									d="m 534.04433,311.6203 c -0.0245,1.39846 -1.02523,2.44643 -2.31745,2.33902 -1.0142,-0.0843 -1.95768,-0.12099 -1.95768,-1.52142 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 1.94375,1.18875 1.93447,1.71812 z"
+									style="fill:#8484ff;fill-opacity:1;stroke:none;filter:url(#filter3888)"
+									transform="matrix(8.1488603,0,0,2.6923076,-3854.3449,-83.154656)" inkscape:connector-curvature="0"
+									sodipodi:nodetypes="sssss" />
+								<path
+									style="fill:#8484ff;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+									d="m 424.74291,292.72462 c -12.85037,11.01231 -26.9563,28.1641 -34.9797,43.61824 m -3.04742,6.50274 c -0.74839,1.80679 -1.3906,3.57162 -1.91332,5.28026"
+									id="path3804" inkscape:connector-curvature="0" transform="translate(0,308.2677)"
+									sodipodi:nodetypes="cccc" />
+							</g>
+		
+						</g>
+					</svg>
 				</div>
-				<label> Amount of coffee intake</label>
-				<select class="form-control" id="coffee">
-					<option value="0">0</option>
-					<option value="1">1 - 2</option>
-					<option value="3">3 - 4</option>
-					<option value="5">5+</option>
-				</select>
-            <label for="activity level">activity level</label><br>
-            <select class="form-control" id="activity">
-					<option value="false">no</option>
-					<option value="true">yes</option>
-				</select>
-				<label for="location">Enter your location!</label><br>
-				<label for="city">city</label>
-            <input id="city" type="text">
-				<label for="state">state</label>
-            <select id="state">
-               <option value="AL">Alabama</option>
-               <option value="AK">Alaska</option>
-               <option value="AZ">Arizona</option>
-               <option value="AR">Arkansas</option>
-               <option value="CA">California</option>
-               <option value="CO">Colorado</option>
-               <option value="CT">Connecticut</option>
-               <option value="DE">Delaware</option>
-               <option value="DC">District Of Columbia</option>
-               <option value="FL">Florida</option>
-               <option value="GA">Georgia</option>
-               <option value="HI">Hawaii</option>
-               <option value="ID">Idaho</option>
-               <option value="IL">Illinois</option>
-               <option value="IN">Indiana</option>
-               <option value="IA">Iowa</option>
-               <option value="KS">Kansas</option>
-               <option value="KY">Kentucky</option>
-               <option value="LA">Louisiana</option>
-               <option value="ME">Maine</option>
-               <option value="MD">Maryland</option>
-               <option value="MA">Massachusetts</option>
-               <option value="MI">Michigan</option>
-               <option value="MN">Minnesota</option>
-               <option value="MS">Mississippi</option>
-               <option value="MO">Missouri</option>
-               <option value="MT">Montana</option>
-               <option value="NE">Nebraska</option>
-               <option value="NV">Nevada</option>
-               <option value="NH">New Hampshire</option>
-               <option value="NJ">New Jersey</option>
-               <option value="NM">New Mexico</option>
-               <option value="NY">New York</option>
-               <option value="NC">North Carolina</option>
-               <option value="ND">North Dakota</option>
-               <option value="OH">Ohio</option>
-               <option value="OK">Oklahoma</option>
-               <option value="OR">Oregon</option>
-               <option value="PA">Pennsylvania</option>
-               <option value="RI">Rhode Island</option>
-               <option value="SC">South Carolina</option>
-               <option value="SD">South Dakota</option>
-               <option value="TN">Tennessee</option>
-               <option value="TX">Texas</option>
-               <option value="UT">Utah</option>
-               <option value="VT">Vermont</option>
-               <option value="VA">Virginia</option>
-               <option value="WA">Washington</option>
-               <option value="WV">West Virginia</option>
-               <option value="WI">Wisconsin</option>
-               <option value="WY">Wyoming</option>
-            </select>
-				<button type="submit">Submit info!</button>
-			</form>
-			<form id="goal">
-				<h2>Set Personal Goal</h2>
-				<p>based off your information, <span id="hydrationGoal"></span> cups of water is your recommended water intake! With this given info, personalize your daily goal to be .</p>
-				<label for="daily goal">Enter your daily goal:</label><br>
-				<input id="daily-goal" type="number"><br>
-				<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
-				<input id="waterbottle" type="text"><br>
-				<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)</p><br>
-				<button type="submit">Start Tracking!</button>
-			</form>
+				<div class="pitcher"></div>
+				<!--where total water consumption is recorded-->
+				<div class="bottle"></div>
+				<!--draggable div-->
+				<button class="add-water" id="button">add water</button>
+				<div class="adding-water">
+					<form action="add-water">
+						<label for="">select amount in oz</label>
+						<input class="form-style" type="number" id="quantity" name="quantity" min="4" max="36">
+					</form>
+				</div>
+				<div class="Aquarium">
+					<div id="bubbles">
+						<div class="bubble x1"></div>
+						<div class="bubble x2"></div>
+						<div class="bubble x3"></div>
+						<div class="bubble x4"></div>
+						<div class="bubble x5"></div>
+						<div class="bubble x6"></div>
+						<div class="bubble x7"></div>
+						<div class="bubble x8"></div>
+						<div class="bubble x9"></div>
+						<div class="bubble x10"></div>
+						<div class="bubble x11"></div>
+					</div>
+				</div>
+				<hr>
+			</div>
 		</div>
-		<div class="track">
-			<hr>
-			<h2><span class="users-name"></span>'s water</h2>
-<!-- //keep this sucker closed (twirl it) -->
-			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     viewBox="0 0 800 430" style="enable-background:new 0 0 800 430;" xml:space="preserve">
-<style type="text/css">
-</style>
-<g id="bottle">
-        <?xml version="1.0" encoding="iso-8859-1"?>
-        <!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-        <polygon style="fill:#00AE95;" points="328.956,106.318 343.895,130.979 343.895,145.879 168.103,145.879 168.103,130.979 
-            183.042,106.318 183.042,94.501 328.956,94.501 "/>
-        <polygon style="fill:#008E76;" points="213.869,106.318 213.869,94.501 183.042,94.501 183.042,106.318 168.103,130.979 
-            168.103,145.879 198.93,145.879 198.93,130.979 "/>
-        <rect x="168.099" y="187.5" style="fill:#00AE95;" width="175.79" height="116.63"/>
-        <rect x="168.099" y="187.5" style="fill:#008E76;" width="30.827" height="116.63"/>
-        <path style="fill:#D4D2D3;" d="M274.236,61.961h-36.474V12.056c0-2.516,2.04-4.556,4.556-4.556h27.362
-            c2.516,0,4.556,2.04,4.556,4.556V61.961z"/>
-        <path style="fill:#BFBEBE;" d="M259.787,7.5h-17.469c-2.516,0-4.556,2.04-4.556,4.556v49.905h17.469V12.056
-            C255.231,9.54,257.271,7.5,259.787,7.5z"/>
-        <path style="fill:#EFEDEE;" d="M330.241,106.318H181.757c-3.831,0-6.936-3.105-6.936-6.936v-44.7c0-3.831,3.105-6.936,6.936-6.936
-            H330.24c3.831,0,6.936,3.105,6.936,6.936v44.699C337.177,103.212,334.071,106.318,330.241,106.318z"/>
-        <path style="fill:#D4D2D3;" d="M205.648,99.382v-44.7c0-3.831,3.105-6.936,6.936-6.936h-30.827c-3.831,0-6.936,3.105-6.936,6.936
-            v44.699c0,3.831,3.105,6.936,6.936,6.936h30.827C208.754,106.318,205.648,103.212,205.648,99.382z"/>
-        <path style="fill:#2FC8B4;" d="M343.895,230.653H168.103c-3.71,0-6.718-3.008-6.718-6.718v-86.238c0-3.71,3.008-6.718,6.718-6.718
-            h175.792c3.71,0,6.718,3.008,6.718,6.718v86.238C350.613,227.646,347.605,230.653,343.895,230.653z"/>
-        <path style="fill:#00AE95;" d="M192.212,223.935v-86.238c0-3.71,3.008-6.718,6.718-6.718h-30.827c-3.71,0-6.718,3.008-6.718,6.718
-            v86.238c0,3.71,3.008,6.718,6.718,6.718h30.827C195.22,230.653,192.212,227.646,192.212,223.935z"/>
-        <path style="fill:#2FC8B4;" d="M330.023,504.5H181.975c-11.372,0-20.59-9.219-20.59-20.59V288.236c0-3.71,3.008-6.718,6.718-6.718
-            h175.792c3.71,0,6.718,3.008,6.718,6.718V483.91C350.613,495.281,341.394,504.5,330.023,504.5z"/>
-        <path style="fill:#00AE95;" d="M192.212,497.782V288.236c0-3.71,3.008-6.718,6.718-6.718h-30.827c-3.71,0-6.718,3.008-6.718,6.718
-            V483.91c0,11.372,9.219,20.59,20.59,20.59h16.955C195.22,504.5,192.212,501.492,192.212,497.782z"/>
-        <path d="M358.113,223.935v-86.238c0-6.182-3.973-11.44-9.493-13.394l-8.653-14.285c2.886-2.641,4.71-6.425,4.71-10.637V54.683
-            c0-7.96-6.476-14.436-14.436-14.436h-48.505V15h17.162c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H269.68h-27.361h-29.218
-            c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h17.162v25.247h-48.505c-7.96,0-14.436,6.476-14.436,14.436v44.699
-            c0,4.211,1.824,7.995,4.71,10.637l-8.653,14.285c-5.521,1.954-9.493,7.212-9.493,13.394v86.238c0,5.085,2.693,9.543,6.718,12.057
-            v40.188c-4.026,2.513-6.718,6.971-6.718,12.056V483.91c0,15.489,12.601,28.09,28.09,28.09h148.048
-            c15.489,0,28.09-12.601,28.09-28.09V288.236c0-5.085-2.693-9.543-6.718-12.056v-40.188
-            C355.421,233.478,358.113,229.021,358.113,223.935z M324.73,113.818l5.853,9.662H181.415l5.853-9.662H324.73z M168.885,223.153
-            v-84.674h174.229v84.674L168.885,223.153L168.885,223.153z M245.262,15h21.474v25.247h-21.474V15z M182.321,55.247h147.355v43.571
-            H182.321V55.247z M343.113,483.91c0,7.218-5.872,13.09-13.09,13.09H181.975c-7.218,0-13.09-5.872-13.09-13.09V289.018h116.012
-            c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H175.603v-35.865h160.792v35.865h-21.029c-4.142,0-7.5,3.358-7.5,7.5
-            s3.358,7.5,7.5,7.5h27.747V483.91z"/>
-        <path d="M276.496,439.607c-3.59-2.064-8.176-0.828-10.24,2.764c-2.107,3.665-6.037,5.941-10.257,5.941
-            c-4.219,0-8.149-2.277-10.257-5.942c-2.065-3.59-6.649-4.827-10.24-2.764c-3.591,2.064-4.828,6.649-2.764,10.24
-            c4.775,8.306,13.688,13.465,23.261,13.465s18.485-5.159,23.261-13.464C281.324,446.256,280.087,441.672,276.496,439.607z"/>
-        <path d="M309.688,407.679c-4.142,0-7.5,3.358-7.5,7.5v11.355c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-11.355
-            C317.188,411.037,313.831,407.679,309.688,407.679z"/>
-        <path d="M202.31,407.679c-4.142,0-7.5,3.358-7.5,7.5v11.355c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-11.355
-            C209.81,411.037,206.452,407.679,202.31,407.679z"/>
-        <g>
-            <path style="fill:#EFEDEE;" d="M315.366,455.5h-11.355c-4.142,0-7.5-3.358-7.5-7.5s3.358-7.5,7.5-7.5h11.355
-                c4.142,0,7.5,3.358,7.5,7.5S319.508,455.5,315.366,455.5z"/>
-            <path style="fill:#EFEDEE;" d="M207.987,455.5h-11.355c-4.142,0-7.5-3.358-7.5-7.5s3.358-7.5,7.5-7.5h11.355
-                c4.142,0,7.5,3.358,7.5,7.5S212.129,455.5,207.987,455.5z"/>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        </svg>
-        
-</g>
-
-<g id="water-drop" class="icon">
-    
-  <defs
-     id="defs4">
-    <filter
-       id="filter3848"
-       x="-0.2"
-       width="1.4"
-       y="-0.2"
-       height="1.4"
-       inkscape:menu-tooltip="Marbled transparency effect which conforms to image detected edges"
-       inkscape:menu="Image effects, transparent"
-       inkscape:label="Marbled ink"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         id="feGaussianBlur3850"
-         result="result9"
-         in="SourceGraphic"
-         stdDeviation="2" />
-      <feTurbulence
-         id="feTurbulence3852"
-         baseFrequency="0.06"
-         numOctaves="10"
-         type="fractalNoise"
-         result="result7"
-         seed="0" />
-      <feColorMatrix
-         id="feColorMatrix3854"
-         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.5 -0.3 "
-         result="result5" />
-      <feComposite
-         id="feComposite3856"
-         in2="result5"
-         in="result9"
-         operator="out"
-         result="result6" />
-      <feGaussianBlur
-         id="feGaussianBlur3858"
-         result="result10"
-         stdDeviation="0.5" />
-      <feDisplacementMap
-         id="feDisplacementMap3860"
-         in2="result10"
-         result="result4"
-         scale="120"
-         yChannelSelector="G"
-         xChannelSelector="A"
-         in="result5" />
-      <feComposite
-         id="feComposite3862"
-         in2="result4"
-         in="result9"
-         operator="in"
-         result="result2" />
-      <feComposite
-         id="feComposite3864"
-         in2="SourceGraphic"
-         operator="in"
-         in="result2"
-         result="fbSourceGraphic" />
-      <feBlend
-         id="feBlend3866"
-         in2="result2"
-         mode="multiply" />
-    </filter>
-    <filter
-       id="filter3868"
-       x="-0.2"
-       width="1.4"
-       y="-0.2"
-       height="1.4"
-       inkscape:menu-tooltip="Marbled transparency effect which conforms to image detected edges"
-       inkscape:menu="Image effects, transparent"
-       inkscape:label="Marbled ink"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         id="feGaussianBlur3870"
-         result="result9"
-         in="SourceGraphic"
-         stdDeviation="2" />
-      <feTurbulence
-         id="feTurbulence3872"
-         baseFrequency="0.06"
-         numOctaves="10"
-         type="fractalNoise"
-         result="result7"
-         seed="0" />
-      <feColorMatrix
-         id="feColorMatrix3874"
-         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.5 -0.3 "
-         result="result5" />
-      <feComposite
-         id="feComposite3876"
-         in2="result5"
-         in="result9"
-         operator="out"
-         result="result6" />
-      <feGaussianBlur
-         id="feGaussianBlur3878"
-         result="result10"
-         stdDeviation="0.5" />
-      <feDisplacementMap
-         id="feDisplacementMap3880"
-         in2="result10"
-         result="result4"
-         scale="120"
-         yChannelSelector="G"
-         xChannelSelector="A"
-         in="result5" />
-      <feComposite
-         id="feComposite3882"
-         in2="result4"
-         in="result9"
-         operator="in"
-         result="result2" />
-      <feComposite
-         id="feComposite3884"
-         in2="SourceGraphic"
-         operator="in"
-         in="result2"
-         result="fbSourceGraphic" />
-      <feBlend
-         id="feBlend3886"
-         in2="result2"
-         mode="multiply" />
-    </filter>
-    <filter
-       id="filter3888"
-       x="-0.2"
-       width="1.4"
-       y="-0.2"
-       height="1.4"
-       inkscape:menu-tooltip="Marbled transparency effect which conforms to image detected edges"
-       inkscape:menu="Image effects, transparent"
-       inkscape:label="Marbled ink"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         id="feGaussianBlur3890"
-         result="result9"
-         in="SourceGraphic"
-         stdDeviation="2" />
-      <feTurbulence
-         id="feTurbulence3892"
-         baseFrequency="0.06"
-         numOctaves="10"
-         type="fractalNoise"
-         result="result7"
-         seed="0" />
-      <feColorMatrix
-         id="feColorMatrix3894"
-         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.5 -0.3 "
-         result="result5" />
-      <feComposite
-         id="feComposite3896"
-         in2="result5"
-         in="result9"
-         operator="out"
-         result="result6" />
-      <feGaussianBlur
-         id="feGaussianBlur3898"
-         result="result10"
-         stdDeviation="0.5" />
-      <feDisplacementMap
-         id="feDisplacementMap3900"
-         in2="result10"
-         result="result4"
-         scale="120"
-         yChannelSelector="G"
-         xChannelSelector="A"
-         in="result5" />
-      <feComposite
-         id="feComposite3902"
-         in2="result4"
-         in="result9"
-         operator="in"
-         result="result2" />
-      <feComposite
-         id="feComposite3904"
-         in2="SourceGraphic"
-         operator="in"
-         in="result2"
-         result="fbSourceGraphic" />
-      <feBlend
-         id="feBlend3906"
-         in2="result2"
-         mode="multiply" />
-    </filter>
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="2.2837517"
-     inkscape:cx="105.45843"
-     inkscape:cy="119.54014"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="768"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-343.37004,-530.36218)">
-    <g
-       id="g3790"
-       transform="matrix(-1,0,0,1,896.19029,-6.2417583)">
-      <path
-         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#6b6bff;fill-opacity:1;stroke:none;stroke-width:4;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-         d="m 530.78125,618.11145 c -1.95034,0.14493 -3.07528,1.65553 -3.90625,3.21875 -0.83097,1.56322 -1.49261,3.53339 -2.09375,5.875 -1.56212,19.62367 -0.64122,34.73262 -8.21875,50.8125 -0.44657,1.01663 0.14923,2.35502 1.2035,2.70355 1.05428,0.34852 2.33039,-0.37106 2.57775,-1.45355 8.21031,-15.58801 6.70201,-31.8575 8.3125,-51.0625 0.55896,-2.17729 1.18557,-3.9382 1.75,-5 0.56443,-1.0618 0.94523,-1.1129 0.6875,-1.09375 1.0472,-0.0818 1.92556,-1.10905 1.84375,-2.15625 -0.0818,-1.0472 -1.10905,-1.92556 -2.15625,-1.84375 z"
-         id="path3786"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="csccsccscsc" />
-      <path
-         sodipodi:type="arc"
-         style="fill:#6b6bff;fill-opacity:1;stroke:#6b6bff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-         id="path3788"
-         sodipodi:cx="532.10986"
-         sodipodi:cy="312.4379"
-         sodipodi:rx="2.3406594"
-         sodipodi:ry="2.5357144"
-         d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
-         transform="translate(0,308.2677)" />
-    </g>
-    <path
-       transform="translate(0,308.2677)"
-       style="fill:#6b6bff;fill-opacity:1;stroke:none"
-       d="m 522,360.09448 c -3.5099,35.29932 -33.8025,75 -75.5,75 -41.6975,0 -72.49958,-19.45734 -72.76923,-69.92857 -0.34288,-64.17739 87.07173,-94.07143 55.76923,-143.07143 34.62607,18.41209 97.97933,82.894 92.5,138 z"
-       id="path2985"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="assca" />
-    <path
-       sodipodi:nodetypes="ssscs"
-       inkscape:connector-curvature="0"
-       id="path3776"
-       d="m 516.92857,361.26481 c -5.27675,32.76616 -35.89977,69.18503 -71.20879,67.58791 -41.65491,-1.88416 -71.71936,-13.21558 -71.98901,-63.68681 -0.34288,-64.17739 87.07173,-94.07143 55.76923,-143.07143 34.62607,18.41209 96.13901,85.08265 87.42857,139.17033 z"
-       style="fill:#8484ff;fill-opacity:1;stroke:none"
-       transform="translate(0,308.2677)" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#00002b;fill-opacity:1;stroke:none"
-       id="path3756"
-       sodipodi:cx="426.5"
-       sodipodi:cy="336.59448"
-       sodipodi:rx="10.5"
-       sodipodi:ry="10.5"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       transform="translate(-2.3406593,309.82814)" />
-    <path
-       transform="matrix(0.53558346,0,0,0.53558346,198.2687,469.07401)"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       sodipodi:ry="10.5"
-       sodipodi:rx="10.5"
-       sodipodi:cy="336.59448"
-       sodipodi:cx="426.5"
-       id="path3758"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       sodipodi:type="arc" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="path3760"
-       sodipodi:cx="426.5"
-       sodipodi:cy="336.59448"
-       sodipodi:rx="10.5"
-       sodipodi:ry="10.5"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       transform="matrix(0.2755102,0,0,0.26005899,304.11851,553.45948)" />
-    <path
-       transform="matrix(0.23614944,0,0,0.22290567,317.37171,571.42662)"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       sodipodi:ry="10.5"
-       sodipodi:rx="10.5"
-       sodipodi:cy="336.59448"
-       sodipodi:cx="426.5"
-       id="path3762"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       sodipodi:type="arc" />
-    <path
-       transform="translate(40.961541,309.82814)"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       sodipodi:ry="10.5"
-       sodipodi:rx="10.5"
-       sodipodi:cy="336.59448"
-       sodipodi:cx="426.5"
-       id="path3764"
-       style="fill:#00002b;fill-opacity:1;stroke:none"
-       sodipodi:type="arc" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="path3766"
-       sodipodi:cx="426.5"
-       sodipodi:cy="336.59448"
-       sodipodi:rx="10.5"
-       sodipodi:ry="10.5"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       transform="matrix(0.53558346,0,0,0.53558346,241.5709,469.07401)" />
-    <path
-       transform="matrix(0.2755102,0,0,0.26005899,347.42071,553.45948)"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       sodipodi:ry="10.5"
-       sodipodi:rx="10.5"
-       sodipodi:cy="336.59448"
-       sodipodi:cx="426.5"
-       id="path3768"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       sodipodi:type="arc" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="path3770"
-       sodipodi:cx="426.5"
-       sodipodi:cy="336.59448"
-       sodipodi:rx="10.5"
-       sodipodi:ry="10.5"
-       d="m 437,336.59448 c 0,5.79899 -4.70101,10.5 -10.5,10.5 -5.79899,0 -10.5,-4.70101 -10.5,-10.5 0,-5.79899 4.70101,-10.5 10.5,-10.5 5.79899,0 10.5,4.70101 10.5,10.5 z"
-       transform="matrix(0.23614944,0,0,0.22290567,360.67391,571.42662)" />
-    <path
-       style="fill:#00002b;fill-opacity:1;stroke:#00002b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       d="m 417.02747,369.58899 c 19.46133,4.20782 42.60335,5.1157 61.63737,-1.17033 0.93222,9.20163 -13.11843,27.83071 -28.47803,28.47802 -14.3061,0.60291 -27.85884,-12.20169 -33.15934,-27.30769 z"
-       id="path3772"
-       inkscape:connector-curvature="0"
-       transform="translate(0,308.2677)"
-       sodipodi:nodetypes="ccsc" />
-    <path
-       sodipodi:nodetypes="cscc"
-       transform="translate(0,308.2677)"
-       inkscape:connector-curvature="0"
-       id="path3774"
-       d="m 472.66574,383.31013 c 0.45331,0.45331 -13.1284,13.80059 -22.47893,13.58655 -3.95611,-0.0906 -11.53003,-2.33772 -11.53003,-2.33772 5.31274,-13.11963 17.58317,-14.72266 34.00896,-11.24883 z"
-       style="fill:#5f8dd3;fill-opacity:1;stroke:none" />
-    <path
-       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#6b6bff;fill-opacity:1;stroke:none;stroke-width:4;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-       d="m 530.78125,618.11145 c -1.95034,0.14493 -3.07528,1.65553 -3.90625,3.21875 -0.83097,1.56322 -1.49261,3.53339 -2.09375,5.875 -1.20229,4.68322 -2.15248,10.82675 -3.03125,17.34375 -1.75755,13.034 -3.2914,27.73511 -5.1875,33.46875 a 2.0002,2.0002 0 1 0 3.78125,1.25 c 2.29703,-6.94604 3.63167,-21.25895 5.375,-34.1875 0.87166,-6.46427 1.81958,-12.52041 2.9375,-16.875 0.55896,-2.17729 1.18557,-3.9382 1.75,-5 0.56443,-1.0618 0.94523,-1.1129 0.6875,-1.09375 a 2.0060942,2.0060942 0 1 0 -0.3125,-4 z"
-       id="path3778"
-       inkscape:connector-curvature="0" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#6b6bff;fill-opacity:1;stroke:#6b6bff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="path3780"
-       sodipodi:cx="532.10986"
-       sodipodi:cy="312.4379"
-       sodipodi:rx="2.3406594"
-       sodipodi:ry="2.5357144"
-       d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
-       transform="translate(0,308.2677)" />
-    <path
-       transform="matrix(8.1488603,0,0,2.6923076,-3919.1031,-84.715096)"
-       style="fill:#6b6bff;fill-opacity:1;stroke:none"
-       d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
-       id="path3794"
-       inkscape:connector-curvature="0" />
-    <path
-       transform="matrix(8.1488603,0,0,2.6923076,-3854.3449,-83.154656)"
-       style="fill:#6b6bff;fill-opacity:1;stroke:none"
-       d="m 534.45052,312.4379 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -2.34066,-1.13528 -2.34066,-2.53571 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 2.34066,1.13528 2.34066,2.53572 z"
-       id="path3796"
-       inkscape:connector-curvature="0" />
-    <path
-       id="path3800"
-       d="m 533.87604,312.1481 c 0,1.40043 -1.04795,2.53571 -2.34066,2.53571 -1.29271,0 -1.76618,-0.84548 -1.76618,-2.24591 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 1.76618,0.84548 1.76618,2.24592 z"
-       style="fill:#8484ff;fill-opacity:1;stroke:none;filter:url(#filter3868)"
-       transform="matrix(8.1488603,0,0,2.6923076,-3919.1031,-84.715096)"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="sssss" />
-    <path
-       id="path3802"
-       d="m 534.04433,311.6203 c -0.0245,1.39846 -1.02523,2.44643 -2.31745,2.33902 -1.0142,-0.0843 -1.95768,-0.12099 -1.95768,-1.52142 0,-1.40044 1.04795,-2.53572 2.34066,-2.53572 1.29271,0 1.94375,1.18875 1.93447,1.71812 z"
-       style="fill:#8484ff;fill-opacity:1;stroke:none;filter:url(#filter3888)"
-       transform="matrix(8.1488603,0,0,2.6923076,-3854.3449,-83.154656)"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="sssss" />
-    <path
-       style="fill:#8484ff;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 424.74291,292.72462 c -12.85037,11.01231 -26.9563,28.1641 -34.9797,43.61824 m -3.04742,6.50274 c -0.74839,1.80679 -1.3906,3.57162 -1.91332,5.28026"
-       id="path3804"
-       inkscape:connector-curvature="0"
-       transform="translate(0,308.2677)"
-       sodipodi:nodetypes="cccc" />
-  </g>
-
-</g>
-			</svg>
-
-		</div>
-		<div class="pitcher"></div>
-		<!--where total water consumption is recorded-->
-		<div class="bottle"></div>
-		<!--draggable div-->
-		<button class="add-water">add water</button>
-		<div class="adding-water">
-			<form action="add-water">
-				<label for="">select amount in oz</label>
-				<input type="number" id="quantity" name="quantity" min="4" max="36">
-			</form>
-		</div>
-		<div class="Aquarium">
-         <div id="bubbles">
-            <div class="bubble x1"></div>
-            <div class="bubble x2"></div>
-            <div class="bubble x3"></div>
-            <div class="bubble x4"></div>
-            <div class="bubble x5"></div>
-            <div class="bubble x6"></div>
-            <div class="bubble x7"></div>
-            <div class="bubble x8"></div>
-            <div class="bubble x9"></div>
-            <div class="bubble x10"></div>
-            <div class="bubble x11"></div>
-         </div>   
-      </div>
-		<hr>
 	</div>
 </body>
 
