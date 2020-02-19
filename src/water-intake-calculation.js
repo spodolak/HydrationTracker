@@ -15,8 +15,10 @@ export class IndividualWaterIntake {
 		this.environmentFactors = 0;
 		this.temperature;
 		this.humidity;
-		this.hydrationGoal = 0;
-		this.currentHydrationLevel = 0;
+		this.hydrationGoal = 0; // IN OUNCES
+		this.currentHydrationLevel = 0; // IN OUNCES
+		this.hydrationGoalCup= 0; // IN CUPS
+		this.currentHydrationLevelCup = 0; // IN CUPS
 	}
 
 	addUserInput(age, gender, height, weight, caffeineIntake, activity, city, state) {
@@ -34,50 +36,54 @@ export class IndividualWaterIntake {
 		this.bmi = +((weight)*703/(height*height)).toFixed(1);
 	}
 
+	cupToOunce(cup)	{
+		return cup*8;
+	}
+
 	calculateHydrationGoal() {
 		//GENDER OR BMI FACTORS
 		if (this.gender === "male") {
-			this.hydrationGoal = 13;
+			this.hydrationGoalCup = 13;
 		} else if (this.gender === "female") {
-			this.hydrationGoal = 9;
+			this.hydrationGoalCup = 9;
 		} if (this.gender === '') {
 			this.calculateUserBmi(this.height, this.weight);
 			if ( this.bmi < 25 ) {
-				this.hydrationGoal = 8;
+				this.hydrationGoalCup = 8;
 			} else if ( this.bmi >= 25.0 && this.bmi < 30) {
-				this.hydrationGoal = 10
+				this.hydrationGoalCup = 10
 			} else if (this.bmi >= 30) {
-				this.hydrationGoal = 12;
+				this.hydrationGoalCup = 12;
 			}
 		}
 		//AGE FACTORS
 		if (this.age < 19 && this.gender === "male") {
-			this.hydrationGoal -= 2;
+			this.hydrationGoalCup -= 2;
 		} else if (this.age < 19 && this.gender === "female") {
-			this.hydrationGoal-- ;
+			this.hydrationGoalCup-- ;
 		}
 		//CAFFEINE FACTORS
 		if (this.caffeineIntake >= 5 ) {
-			this.hydrationGoal += 5; 
+			this.hydrationGoalCup += 5; 
 		} else if (this.caffeineIntake >=3 || this.caffeineIntake <= 4) {
-			this.hydrationGoal += 3;
+			this.hydrationGoalCup += 3;
 		} else if (this.caffeineIntake >=1 || this.caffeineIntake <= 2) {
-			this.hydrationGoal += 1;
+			this.hydrationGoalCup += 1;
 		}
 		//ACTIVITY FACTORS
 		if (this.activity === "true") {
-			this.hydrationGoal++;
+			this.hydrationGoalCup++;
 		}
 		//ENVIRONMENT FACTORS
 		if (this.temperature >= 302) {
-			console.log(IndividualWaterIntake.temperature);
-			this.hydrationGoal++;
+			this.hydrationGoalCup++;
 		} 
 		if (this.temperature >= 302 && this.humidity >= 70) {
-			this.hydrationGoal += 1;
+			this.hydrationGoalCup += 1;
 		}
 		if (this.humidity <= 45) {
-			this.hydrationGoal++;
+			this.hydrationGoalCup++;
 		}
+		this.hydrationGoal = this.cupToOunce(this.hydrationGoalCup);
 	}
 }
