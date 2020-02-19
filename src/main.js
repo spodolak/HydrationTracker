@@ -97,6 +97,10 @@ $(document).ready(function() {
     $("#goal").hide();
     $(".tracking").show();
     
+    //append information
+    user.hydrationGoal = goal; //incase function is backend?
+    $("#usersBottle").html(waterbottle); //display waterbottle ozs
+    $("#usersGoal").html(goal); //Display users goal at top
 
     console.log('more gathered info:', goal, waterBottle);
   });
