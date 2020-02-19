@@ -22,6 +22,9 @@
   
   label {
     color: #d3da7d;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+
   }
   .form-style {
     align-self: center;
