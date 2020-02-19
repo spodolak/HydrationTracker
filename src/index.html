@@ -138,19 +138,21 @@
 								</select>
 							</div>
 						</div>
-						<button type="submit">Submit info!</button>
+						<button type="submit" id="button">Submit info!</button>
 					</form>
-					<form id="goal">
-						<h2>Set Personal Goal</h2>
-						<p>based off your information, these are your recommende water intake options. please select one to
-							commit to.</p>
-						<label for="daily goal">Enter your daily goal:</label><br>
-						<input class="form-style" id="daily-goal" type="text"><br>
-						<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
-						<input class="form-style" id="waterbottle" type="text"><br>
-						<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)</p><br>
-						<button type="submit">Start Tracking!</button>
-					</form>
+					<div class="large-12 medium-12 small-12">
+						<form id="goal">
+							<h2>Set Personal Goal</h2>
+							<p>based off your information, these are your recommende water intake options. please select one to
+								commit to.</p>
+							<label for="daily goal">Enter your daily goal:</label><br>
+							<input class="form-style" id="daily-goal" type="text"><br>
+							<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
+							<input class="form-style" id="waterbottle" type="text"><br>
+							<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)</p><br>
+							<button type="submit" id="button">Start Tracking!</button>
+						</form>
+					</div>
 				</div>
 				<div class="track">
 					<hr>
@@ -422,7 +424,7 @@
 				<!--where total water consumption is recorded-->
 				<div class="bottle"></div>
 				<!--draggable div-->
-				<button class="add-water">add water</button>
+				<button class="add-water" id="button">add water</button>
 				<div class="adding-water">
 					<form action="add-water">
 						<label for="">select amount in oz</label>
