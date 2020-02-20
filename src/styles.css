@@ -19,6 +19,7 @@
    .jumbotron {
     /* background: #82A9B5; */
     background: #7690b5;
+    padding: 30px 10px 30px 10px;
    }
 
    h1, h2, h3 {
@@ -30,6 +31,8 @@
     font-size: 60px;
   }
   
+ 
+
   label {
     color: #EBAB6B;
     font-family: 'Open Sans', sans-serif;
@@ -56,6 +59,7 @@
     border: 2px solid #9ea551;
     background: #d3da7d;
     padding: 10px;
+    font-family: 'Fredoka One', cursive;
   }
   
   #special-margin {
