@@ -14,14 +14,34 @@
     margin-top: 20px;
    }
   
+   .jumbotron {
+    /* background: #82A9B5; */
+    background: #7690b5;
+    padding: 30px 10px 30px 10px;
+   }
+
    h1, h2, h3 {
     text-align: center;
     font-family: 'Fredoka One', cursive;
   }
-  
-  label {
-    color: #d3da7d;
+
+  h1 {
+    font-size: 60px;
   }
+  
+ 
+
+  label {
+    color: #EBAB6B;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+  }
+
   .form-style {
     align-self: center;
     border-radius: 7px;
@@ -37,6 +57,7 @@
     border: 2px solid #9ea551;
     background: #d3da7d;
     padding: 10px;
+    font-family: 'Fredoka One', cursive;
   }
   
   #special-margin {

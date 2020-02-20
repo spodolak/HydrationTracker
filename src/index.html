@@ -16,6 +16,7 @@
 		crossorigin="anonymous"></script>
 		<!-- Google Font -->
 		<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Inconsolata&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
 	<title>Water Tracker</title>
 </head>
 
@@ -57,50 +58,57 @@
 	<div class="grid-container">	
 		<div class="grid-x grid-padding-x">
 			<div class="large-12 cell">
-				<h1>Hydration Aquarium</h1>
-				<div class="start">
+				<div class="jumbotron">
+					<h1>Hydration Aquarium</h1>
+				</div>
+				<div class="start">			
 					<form id="personal-info">
-						<h2>Hello! Welcome to Hydrations aquarium!</h2>
-						<p>Here I am tellin you about how the app works, and instructing you to fill in the information below to
-							start We will use this information to suggest an array of water intakes.</p>
+							<div class="panel">		
+									<div class="panel-heading">
+										<h2>Hello! Welcome to Hydration Aquarium!</h2>
+									</div>
+									<div class="panel-body">
+										<p>Let's start by adding your information in the form below. <br>We will use this information to suggest the water intake amount for you!</p>
+								</div>
+								</div>
 						<!-- person's information -->
 						<div class="grid-x grid-padding-x">
 							<div class="large-6 medium-6 small-6 cell">
-								<label for="name">Enter your name!</label><br>
+								<label for="name">Your name:</label><br>
 								<input class="form-style" id="name" type="text"><br>
 							</div>
 							<div class="large-6 medium-6 small-6 cell">
-									<label for="age">age</label><br>
+									<label for="age">Your age:</label><br>
 									<input class="form-style" id="age" type="text"><br>
 							</div>
 						</div>
 						<div class="grid-x grid-padding-x">
 							<div class="large-4 medium-12 small-12 cell">
 								<h3 for="location">Choose calculation style!</h3>
-								<label for="sex">how you want your water intake to be calculated</label><br>
+								<label for="sex">Select the preferred calculation method:</label><br>
 								<select class="form-control form-style" id="sex-or-bmi">
-									<option class="form-style"  value="sex">sex</option>
-									<option class="form-style" value="bmi">bmi</option>
+									<option class="form-style"  value="sex">Sex</option>
+									<option class="form-style" value="bmi">Bmi</option>
 								</select>
 								<br>
 								<div class="sexs">
-									<label>Please select your sex</label>
+									<label>Please select your sex:</label>
 									<select class="form-control form-style" id="sex">
 										<option></option>
-										<option>male</option>
-										<option>female</option>
+										<option>Male</option>
+										<option>Female</option>
 									</select>
 								</div>
 								<div class="bmi">
-									<label for="height">your height in inches</label>
+									<label for="height">Your height (in inches):</label>
 									<input class="form-style" id="height" type="number">
-									<label for="weight">your weight in pounds</label>
+									<label for="weight">Your weight (in pounds):</label>
 									<input class="form-style" id="weight" type="number">
 								</div>
 							</div>
 							<div class="large-4 medium-12 small-12 cell">
 								<h3 for="location">Enter your lifestyle info!</h3>
-								<label> Amount of coffee intake</label>
+								<label> How much coffee do you drink in a day?</label>
 								<select class="form-control form-style" id="coffee">
 									<option value="0">0</option>
 									<option value="1">1 - 2</option>
@@ -108,19 +116,19 @@
 									<option value="5">5+</option>
 								</select>
 								<br>
-								<label for="activity level">activity level</label><br>
+								<label for="activity level">Do you lead an active lifestyle?</label><br>
 								<select class="form-control form-style" id="activity">
-								<option value="false">no</option>
-								<option value="true">yes</option>
+								<option value="false">No</option>
+								<option value="true">Yes</option>
 								</select>
 
 							</div>
 							<div class="large-4 medium-12 small-12 cell">
 								<!-- city/state -->
 								<h3 for="location">Enter your location!</h3>
-								<label form-style for="city">city</label>
+								<label form-style for="city">City</label>
 								<input class="form-style" id="city" type="text">
-								<label id="special-margin" for="state">state</label>
+								<label id="special-margin" for="state">State</label>
 								<select class="form-style" id="state">
 									<option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
@@ -176,12 +184,14 @@
 								</select>
 							</div>
 						</div>
+						<br>
 						<button type="submit" class="button">Submit info!</button>
 					</form>
 					<div class="large-12 medium-12 small-12">
 						<form id="goal">
 							<h2>Set Personal Goal</h2>
-							<p>based off your information, <span id="hydrationGoal"></span> cups of water is your recommended water intake! With this given info, personalize your daily goal to be .</p>
+							<p>Based on your information, we recommend drinking <span id="hydrationGoal"></span> Oz of water today.</p>
+							<p>Add the recommended amount below to start tracking your progress! <br> If you don't like our suggestion, simply add your preferred goal for today!</p>
 							<label for="daily goal">Enter your daily goal:</label><br>
 							<input class="form-style" id="daily-goal" type="text"><br>
 							<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
@@ -475,6 +485,12 @@
             </form>
 				</div>
         </div>
+        <button id="addWaterButton" class="button">Add water</button>
+        <form id="select-water-amount">
+          <label>select amount in oz</label>
+          <input class="form-style" type="number" id="quantity" name="quantity" min="4" >
+          <button type="submit">add water</button>
+        </form>
 				<div class="Aquarium">
 					<div id="bubbles">
 						<div class="bubble x1"></div>
