@@ -109,10 +109,17 @@ function reachedGoal(user) {
     $("#currentHydro").html(user.currentHydrationLevel);
     user.fishIndex++;
     $('.fish-'+ user.fishIndex).fadeIn();
-    alert('You did it!!');
+   $(".ha-title").hide();
+    $(".success").show();
   }
 }
-
+function clearSuccess() {
+  $(".success").hide();
+  $(".ha-title").show();
+  $('#bar').css("width", 0 + "%");
+  $(".vase").remove();
+  $(".pictures").html(`<a  id="empty" href="https://imgur.com/Yyp9bcy"><img class="vase" src="https://i.imgur.com/Yyp9bcy.png" title="source: imgur.com" /></a>`);
+}
 function chooseVase(percentHydro) {
   console.log('in. perc = ', percentHydro )
   if (percentHydro < 10) {
@@ -220,6 +227,10 @@ $(document).ready(function () {
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     $("form#select-water-amount").hide();
   });
+  //continue/refresh --------------------------------------------------
+  $("#continue").click(function () {
+    clearSuccess();
+  })
 });
 
 
