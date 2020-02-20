@@ -30,7 +30,12 @@
     font-size: 80px;
   }
   
- 
+ .success {
+  display: none;
+  align-self: center;
+  border-radius: 7px;
+  color: rgb(202, 173, 5);
+ }
 
   label {
     color: #EBAB6B;

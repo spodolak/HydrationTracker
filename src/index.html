@@ -14,9 +14,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"
 		integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
 		crossorigin="anonymous"></script>
-		<!-- Google Font -->
-		<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Inconsolata&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Inconsolata&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
 	<title>Water Tracker</title>
 </head>
 
@@ -36,12 +36,12 @@
 		<div class="container">
 			<div class="fish">
 				<div class="fish__body">
-						<div class="spot"></div>
-						<div class="spot"></div>
-						<div class="spot"></div>
-						<div class="spot"></div>
-						<div class="eye left"></div>
-						<div class="eye right"></div>
+					<div class="spot"></div>
+					<div class="spot"></div>
+					<div class="spot"></div>
+					<div class="spot"></div>
+					<div class="eye left"></div>
+					<div class="eye right"></div>
 				</div>
 				<div class="fish__transparent"></div>
 			</div>
@@ -91,22 +91,29 @@
 			</div>
 		</div>
 	</div>
-	<div class="grid-container">	
+	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="large-12 cell">
 				<div class="jumbotron">
-					<h1>Hydration Aquarium</h1>
+					<div class="ha-title">
+						<h1>Hydration Aquarium</h1>
+					</div>
+					<div class="success">
+						<h1>You've reached your hydration goal! You've earned a fish!</h1>
+						<button class="button" id="continue" type="submit">Continue</button>
+					</div>
 				</div>
-				<div class="start">			
+				<div class="start">
 					<form id="personal-info">
-							<div class="panel">		
-									<div class="panel-heading">
-										<h2>Welcome to Hydration Aquarium!</h2>
-									</div>
-									<div class="panel-body">
-										<p>Add your information below to find out how much water you should drink today!</p>
-								</div>
-								</div>
+						<div class="panel">
+							<div class="panel-heading">
+								<h2>Welcome to Hydration Aquarium!</h2>
+							</div>
+
+							<div class="panel-body">
+								<p>Add your information below to find out how much water you should drink today!</p>
+							</div>
+						</div>
 						<!-- person's information -->
 						<div class="grid-x grid-padding-x">
 							<div class="large-6 medium-6 small-6 cell">
@@ -114,8 +121,8 @@
 								<input class="form-style" id="name" type="text"><br>
 							</div>
 							<div class="large-6 medium-6 small-6 cell">
-									<label for="age">Your age:</label><br>
-									<input class="form-style" id="age" type="text"><br>
+								<label for="age">Your age:</label><br>
+								<input class="form-style" id="age" type="text"><br>
 							</div>
 						</div>
 						<div class="grid-x grid-padding-x">
@@ -123,7 +130,7 @@
 								<h3 for="location">Choose calculation style!</h3>
 								<label for="sex">Select the preferred calculation method:</label><br>
 								<select class="form-control form-style" id="sex-or-bmi">
-									<option class="form-style"  value="sex">Sex</option>
+									<option class="form-style" value="sex">Sex</option>
 									<option class="form-style" value="bmi">Bmi</option>
 								</select>
 								<br>
@@ -154,8 +161,8 @@
 								<br>
 								<label for="activity level">Do you lead an active lifestyle?</label><br>
 								<select class="form-control form-style" id="activity">
-								<option value="false">No</option>
-								<option value="true">Yes</option>
+									<option value="false">No</option>
+									<option value="true">Yes</option>
 								</select>
 
 							</div>
@@ -226,17 +233,21 @@
 					<div class="large-12 medium-12 small-12">
 						<form id="goal">
 							<h2>Set Personal Goal</h2>
-							<p>Based on your information, we recommend drinking <span id="hydrationGoal"></span> Oz of water today.</p>
-							<p>Add the recommended amount below to start tracking your progress! <br> If you don't like our suggestion, simply add your preferred goal for today!</p>
+							<p>Based on your information, we recommend drinking <span id="hydrationGoal"></span> Oz of
+								water today.</p>
+							<p>Add the recommended amount below to start tracking your progress! <br> If you don't like
+								our suggestion, simply add your preferred goal for today!</p>
 							<label for="daily goal">Enter your daily goal:</label><br>
 							<input class="form-style" id="daily-goal" type="text"><br>
 							<label for="Waterbottle">Enter your personal waterbottle's size in oz!:</label><br>
 							<input class="form-style" id="waterbottle" type="text"><br>
-							<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)</p><br>
+							<p class="subtext">(dont worry, youll have the chance to adjust water intake volumes later)
+							</p><br>
 							<button type="submit" class="button">Start Tracking!</button>
 						</form>
 					</div>
 				</div>
+
 				<div class="track">
 					<h2><span class="users-name"></span>'s water</h2>
 					<h3>Your goal is to drink <span id="usersGoal"></span> oz's of water!</h3>
@@ -282,9 +293,10 @@
 						</div>
 					</div>
 					<!-- //keep this sucker closed (twirl it) -->
-						<div class="pictures">
-								<a class="vase" id="empty" href="https://imgur.com/Yyp9bcy"><img  src="https://i.imgur.com/Yyp9bcy.png" title="source: imgur.com" /></a>
-								<!-- <a  id="v10" href="https://imgur.com/q5NREHV"><img class="vase" src="https://i.imgur.com/q5NREHV.png" title="source: imgur.com" /></a>
+					<div class="pictures">
+						<a class="vase" id="empty" href="https://imgur.com/Yyp9bcy"><img
+								src="https://i.imgur.com/Yyp9bcy.png" title="source: imgur.com" /></a>
+						<!-- <a  id="v10" href="https://imgur.com/q5NREHV"><img class="vase" src="https://i.imgur.com/q5NREHV.png" title="source: imgur.com" /></a>
 								<a  id="v20" href="https://imgur.com/pjVCtOp"><img class="vase" src="https://i.imgur.com/pjVCtOp.png" title="source: imgur.com" /></a>
 								<a  id="v30" href="https://imgur.com/dzqAq3y"><img class="vase" src="https://i.imgur.com/dzqAq3y.png" title="source: imgur.com" /></a>
 								<a  id="v40" href="https://imgur.com/BiOIaac"><img class="vase" src="https://i.imgur.com/BiOIaac.png" title="source: imgur.com" /></a>
@@ -294,44 +306,45 @@
 								<a  id="v80" href="https://imgur.com/358md37"><img class="vase" src="https://i.imgur.com/358md37.png" title="source: imgur.com" /></a>
 								<a  id="v90" href="https://imgur.com/l0grCux"><img class="vase" src="https://i.imgur.com/l0grCux.png" title="source: imgur.com" /></a>
 								<a  id="v100" href="https://imgur.com/pkhzFjj"><img class="vase" src="https://i.imgur.com/pkhzFjj.png" title="source: imgur.com" /></a> -->
+					</div>
+					<p>you've had <span id="currentHydro"></span></p>
+					<div class="progress">
+						<div id="bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+							aria-valuemin="0" aria-valuemax="100">
 						</div>
-            <p>you've had <span id="currentHydro"></span></p>
-            <div class="progress">
-              <div id="bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-              </div>
-            </div>
-            <div class="bottle">
-							<img id="waterBottle"  src="https://pngimage.net/wp-content/uploads/2018/06/water-bottle-cartoon-png-6-200x200.png" />
-              <p>Your waterbottle (<span id="usersBottle"></span> oz's)</p>
-            </div>
-            <button id="addWaterButton" class="button">add water</button>
 					</div>
-        </div>
-        <form id="select-water-amount">
-          <label>select amount in oz</label>
-          <input class="form-style" type="number" id="thequantity" name="quantity" min="4" >
-          <button type="submit">add water</button>
-        </form>
-				<div class="Aquarium">
-					<div id="bubbles">
-						<div class="bubble x1"></div>
-						<div class="bubble x2"></div>
-						<div class="bubble x3"></div>
-						<div class="bubble x4"></div>
-						<div class="bubble x5"></div>
-						<div class="bubble x6"></div>
-						<div class="bubble x7"></div>
-						<div class="bubble x8"></div>
-						<div class="bubble x9"></div>
-						<div class="bubble x10"></div>
-						<div class="bubble x11"></div>
+					<div class="bottle">
+						<img id="waterBottle"
+							src="https://pngimage.net/wp-content/uploads/2018/06/water-bottle-cartoon-png-6-200x200.png" />
+						<p>Your waterbottle (<span id="usersBottle"></span> oz's)</p>
 					</div>
+					<button id="addWaterButton" class="button">add water</button>
 				</div>
-				<hr>
 			</div>
+			<form id="select-water-amount">
+				<label>select amount in oz</label>
+				<input class="form-style" type="number" id="thequantity" name="quantity" min="4">
+				<button type="submit">add water</button>
+			</form>
+			<div class="Aquarium">
+				<div id="bubbles">
+					<div class="bubble x1"></div>
+					<div class="bubble x2"></div>
+					<div class="bubble x3"></div>
+					<div class="bubble x4"></div>
+					<div class="bubble x5"></div>
+					<div class="bubble x6"></div>
+					<div class="bubble x7"></div>
+					<div class="bubble x8"></div>
+					<div class="bubble x9"></div>
+					<div class="bubble x10"></div>
+					<div class="bubble x11"></div>
+				</div>
+			</div>
+			<hr>
 		</div>
+	</div>
 	</div>
 </body>
 
 </html>
-
