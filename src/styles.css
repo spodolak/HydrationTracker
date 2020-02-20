@@ -279,6 +279,10 @@
   .fish-1, .fish-2, .fish-3, .fish-4 {
     display: none;
   } 
+  /* Vase image sizing */
+  img{
+    max-height: 600px;
+    }
   
   /* FISH 1 ANIMATION START */
   
@@ -838,3 +842,4 @@
   }
 }
 /* FISH 4 ANIMATION END */
+
