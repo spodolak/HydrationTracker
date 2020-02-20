@@ -12,16 +12,13 @@
 
 
 | Specification | Example Input | Example Output |
-| ------------- |:-------------:| -------------------:|
-| Start new goal tracking | enter name (phil) - start | Welcome phil |
-| User selects personal daily goal | please enter your goal | 70 oz |
-| assaign water bottle size | What size is your water bottle? | Bottle 1: 30 oz |
-| User can add multiple water bottle sizes | *click button for adding another waterbottle size* | Bottle 2: ___  |
-| User clicks 'done', gets taken to water tracking page | *click done* | form page closes and water tracking page opens |
-| User can log how much water they just drank | *click water button, selects how much they drank* | vis.rep. for reaching goal gets bigger |
-| User can see the time stamp of their last water intake | *user is idle* | * in corner * 'last water intake: 1:24 pm'|
-| User is congradulated when they reach goal | *user reaches water intake goal* | *confetti, changing colors* 'You did it!!'|
-| User's water intake amount is reset to zero at midnight | *time: 11:59* '50oz logged' | *time: 12:00* '0 oz logged'|
+| :------------- |:-------------| :-------------------|
+| User completes the form with personal information | <p>your name: Phil <p> <p>Your age: 35</p> <p>Select the preferred calculation method:bmi</p> <p>Your height (in inches):100</p> <p>Your weight (in pounds): 160</p> <p>How much coffee do you drink in a day? 1-2</p> <p>Do you lead an active lifestyle?</p> <p>City: Portland</p> <p>State: Oregon| <p>your name: Phil <p> <p>Your age: 35</p> <p>Select the preferred calculation method:bmi</p> <p>Your height (in inches):100</p> <p>Your weight (in pounds): 160</p> <p>How much coffee do you drink in a day? 1-2</p> <p>Do you lead an active lifestyle?</p> <p>City: Portland</p> <p>State: Oregon</p> |
+| User submits the form and the Select Personal Goal page is displayed, showing the recommended water intake| User clicks on the "Submit info" button| <p>Page displays:</p> <p>Based on your information, we recommend drinking 96 Oz of water today.</p> |
+| <p>User types in the following and submits the form: </p> <p>- Desired water intake goal in oz - can be the recommended goal or a random goal </p> <p>- Size of their water bottle</p>| <p>Enter your daily goal: 96 oz</p> <p>Enter your waterbottle size in oz: 4</p> <p>User clicks on the "Start Tracking!" button</p>| Application collects the information and displays the tracking page|
+| In the Tracking Page, user clicks the Add Water button to show the field where they can add how much water they drank | *click the "Add Water" button* | Number input field is displayed along with the add water button |
+| User logs how much water they drank in oz and clicks the "add water" button | <p>User types: 5</p> <p>*clicks "add water" button*</p>| Blue indicator in the progress bar increases and text is displayed showing the oz drank so far |
+| User is congradulated when they reach goal and the fish appear| User reaches water intake goal | Confetti and a new fish appears in the background along with a message: 'You did it!!' |
 
 
 
@@ -32,7 +29,7 @@
 
   1. Click on the *clone or download* button of this repository. You can download the project file clicking the **"Download Zip"** button, double clicking the file in downloads, and navigating to the index.html file and double clicking that. *Or*, you can copy the link that pops up when you've clicked the *clone or download* button above this README.md file.
   2. Navigate to your terminal, where you have previously installed git (if you have not done this yet, go ahead and do so now).
-  3. In terminal, change your directory to desktop, and then type **"git clone https://github.com/**.
+  3. In terminal, change your directory to desktop, and then type **git clone https://github.com/**.
   4. When you've pressed enter, my project will be cloned onto your desktop, and now you can change directory into it and type **"code ."** to open the projects files in Visual Studio Code!
 
 _Next, install npm in the project directory_
@@ -60,7 +57,9 @@ _Installing you're own API key:_
 * VS Code
 * Bootstrap
 * Dotenv
-
+* Foundation
+* CodePen
+* GSAP - GreenSock
 
 ## Known Bugs
 Currently there are no known bugs. 
