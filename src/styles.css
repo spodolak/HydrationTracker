@@ -31,6 +31,7 @@
     font-size: 80px;
   }
   
+
   .box {
     margin: 50px;
     margin-left: 150px;
@@ -41,6 +42,14 @@
     border-radius: 4px;
 
    }
+
+ .success {
+  display: none;
+  align-self: center;
+  border-radius: 7px;
+  color: rgb(202, 173, 5);
+ }
+
 
   label {
     color: #EBAB6B;
@@ -294,8 +303,8 @@
   }
   /* BUBBLE ANIMATION END  */
 
-  /* HIDE FISH */
-  .fish-1, .fish-2, .fish-3, .fish-4 {
+  /* HIDE FISH AND CONFETTI */
+  .fish-1, .fish-2, .fish-3, .fish-4, .cannon {
     display: none;
   } 
   /* Vase image sizing */
@@ -862,3 +871,137 @@
 }
 /* FISH 4 ANIMATION END */
 
+/* CONFETTI ANIMATION START */
+/* Cannon */
+.cannon {
+  height: 70vh;
+  width: 1px;
+  margin-bottom: 1200px;
+  /* position: absolute; */
+  transform-origin: 50% 100%;
+  animation: cannon-explosion 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+  animation-iteration-count: infinite;
+ /* Paths */
+ /* Confettis */
+}
+@keyframes cannon-explosion {
+  0% {
+    transform: scale(0);
+ }
+  80% {
+    opacity: 1;
+ }
+  100% {
+    opacity: 0;
+ }
+}
+.cannon__path {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  transform-origin: 50% 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.cannon__path--lg {
+  height: 100%;
+}
+.cannon__path--md {
+  height: 95%;
+}
+.cannon__path--sm {
+  height: 90%;
+}
+.cannon__path--angle-2 {
+  transform: rotate(-15deg);
+}
+.cannon__path--angle-1 {
+  transform: rotate(-7.5deg);
+}
+.cannon__path--angle1 {
+  transform: rotate(7.5deg);
+}
+.cannon__path--angle2 {
+  transform: rotate(15deg);
+}
+.cannon__confetti {
+  flex: 0 1 auto;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+ /* Types */
+ /* Colors */
+}
+.cannon__confetti:nth-child(even) {
+  animation-name: confetti-rotate-l;
+}
+@keyframes confetti-rotate-l {
+  0% {
+    transform: rotate(0) scaleY(1);
+ }
+  50% {
+    transform: rotate(2turn) scaleY(1.5);
+ }
+  100% {
+    transform: rotate(2.05turn) scaleY(1);
+ }
+}
+.cannon__confetti:nth-child(odd) {
+  animation-name: confetti-rotate-r;
+}
+@keyframes confetti-rotate-r {
+  0% {
+    transform: rotate(0) scaleY(1);
+ }
+  50% {
+    transform: rotate(-2turn) scaleY(1.5);
+ }
+  100% {
+    transform: rotate(-2.05turn) scaleY(1);
+ }
+}
+.cannon__confetti--ribbon {
+  height: 1em;
+  width: 0.5em;
+  border-radius: 0.1em;
+}
+.cannon__confetti--flake {
+  height: 0.5em;
+  width: 0.5em;
+  border-radius: 50%;
+}
+.cannon__confetti--color-1 {
+  background-color: #feb535;
+}
+.cannon__confetti--color-2 {
+  background-color: #bea4ff;
+}
+.cannon__confetti--color-3 {
+  background-color: #ff6e83;
+}
+.cannon__confetti--color-4 {
+  background-color: #58cafe;
+}
+/* Demo styles */
+html {
+  background-color: #492684;
+}
+.party-popper {
+  position: absolute;
+  left: 50%;
+  bottom: 5vh;
+  font-size: 2em;
+  transform: translateX(-50%) rotate(-45deg);
+}
+.cannon {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+}
+
+/* CONFETTI ANIMATION END */
