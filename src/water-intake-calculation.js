@@ -19,6 +19,7 @@ export class IndividualWaterIntake {
 		this.currentHydrationLevel = 0; // IN OUNCES
 		this.hydrationGoalCup= 0; // IN CUPS
 		this.currentHydrationLevelCup = 0; // IN CUPS
+		this.fishIndex = 0;
 	}
 
 	addUserInput(age, gender, height, weight, caffeineIntake, activity, city, state) {
