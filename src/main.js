@@ -108,8 +108,12 @@ function reachedGoal(user) {
     user.currentHydrationLevel = 0;
     $("#currentHydro").html(user.currentHydrationLevel);
     user.fishIndex++;
-    $('.fish-'+ user.fishIndex).fadeIn();
-    alert('You did it!!');
+    $('.cannon').show();
+    setTimeout(function(){
+      $('.fish-'+ user.fishIndex).fadeIn();
+      $('.cannon').hide();
+     }, 3500);
+
   }
 }
 
