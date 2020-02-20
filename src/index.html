@@ -225,8 +225,10 @@
 					</form>
 					<div class="large-12 medium-12 small-12">
 						<form id="goal">
-							<h2>Set Personal Goal</h2>
-							<p>Based on your information, we recommend drinking <span id="hydrationGoal"></span> Oz of water today.</p>
+							<div class="box">
+								<!-- <h2>Set Personal Goal</h2> -->
+								<h2 class="multicolortext">We recommend drinking <span id="hydrationGoal"></span> Oz of water today</h2>
+							</div>
 							<p>Add the recommended amount below to start tracking your progress! <br> If you don't like our suggestion, simply add your preferred goal for today!</p>
 							<label for="daily goal">Enter your daily goal:</label><br>
 							<input class="form-style" id="daily-goal" type="text"><br>
@@ -238,8 +240,8 @@
 					</div>
 				</div>
 				<div class="track">
-					<h2><span class="users-name"></span>'s water</h2>
-					<h3>Your goal is to drink <span id="usersGoal"></span> oz's of water!</h3>
+					<h2 class="user-oz-display"><span class="users-name"></span>'s water</h2>
+					<h3 class="user-oz-display">Your goal is to drink <span id="usersGoal"></span> oz's of water!</h3>
 					<!-- //keep this sucker closed (twirl it) -->
 						<div class="pictures">
 								<a class="vase" id="empty" href="https://imgur.com/Yyp9bcy"><img  src="https://i.imgur.com/Yyp9bcy.png" title="source: imgur.com" /></a>
@@ -254,7 +256,7 @@
 								<a  id="v90" href="https://imgur.com/l0grCux"><img class="vase" src="https://i.imgur.com/l0grCux.png" title="source: imgur.com" /></a>
 								<a  id="v100" href="https://imgur.com/pkhzFjj"><img class="vase" src="https://i.imgur.com/pkhzFjj.png" title="source: imgur.com" /></a> -->
 						</div>
-            <p>you've had <span id="currentHydro"></span></p>
+            <p>You've had <span id="currentHydro"></span></p>
             <div class="progress">
               <div id="bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
               </div>
@@ -267,9 +269,9 @@
 					</div>
         </div>
         <form id="select-water-amount">
-          <label>select amount in oz</label>
+          <label>Select amount in oz</label>
           <input class="form-style" type="number" id="thequantity" name="quantity" min="4" >
-          <button type="submit">add water</button>
+          <button class="button" type="submit">add water</button>
         </form>
 				<div class="Aquarium">
 					<div id="bubbles">
