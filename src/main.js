@@ -6,57 +6,97 @@ import './styles.css';
 import { WeatherService } from './weather-service.js';
 import { gsap } from 'gsap';
 //DRAGABILITY ----------------------------------------------------------
-Draggable.create(".icon", {
-  bounds:"svg",
 
-  onDrag: function() {
-    if (this.hitTest("#bottle")) {
-      TweenLite.to(this.target, 0.6, {opacity:0, scale:0, svgOrigin:"400 400"});
-      // user.waterintake += bottleval
+//makes sure you can add waterbottle multiple times
+const returnBottle = function () {
+  // makes sure waterbottle doesnt exist
+  $('#waterBottle').remove()
+  console.log("returnBottle called")
+  //creates new bottle
+  $('.bottle').append('<img id="waterBottle"  src="https://pngimage.net/wp-content/uploads/2018/06/water-bottle-cartoon-png-6-200x200.png" />')
+  //calls the drag function again, so it can be created for the new bottle created within this function
+  initDrag()
+  // adds the waterbottles value to currenthydration level value
+  addHydrate(thisUser, parseInt($("#waterbottle").val()))
+}
+
+// the drag function
+const initDrag = function () {
+  //targets waterbottle as draggable
+  Draggable.create("#waterBottle", {
+    // allows us to see function is working while dragging
+    onDragStart: function () {
+      console.log("called")
+    },
+    //executes AFTER animation
+    onDragEnd: function () {
+      //informs us what is dragging- the plastic waterbottle
+      console.log("this.target", this.target)
+      //if target hits scope..
+      if (this.hitTest("#bottle")) {
+        console.log("this.target", this.target)
+        //do this animation AND... ON COMPLETE, EXECUTE THIS FUNCTION
+        TweenLite.to(this.target, 0.6, { opacity: 0, scale: 0, onComplete: returnBottle });
+
+      }
     }
-  }
-});
+  });
+}
+
+//// old function. 
+// Draggable.create(".icon", {
+//   bounds: "svg",
+
+//   // onDrag: function() {
+//   onDragEnd: function () {
+//     if (this.hitTest("#bottle")) {
+//       TweenLite.to(this.target, 0.6, { opacity: 0, scale: 0, svgOrigin: "400 400" });
+//       // user.waterintake += bottleval
+//     }
+//   }
+// });
 
 //API FUNCTIONALITY ----------------------------------------------------------
 
-async function getWeatherStats (city, state, user) {
+async function getWeatherStats(city, state, user) {
   let weatherService = new WeatherService();
   const response = await weatherService.getWeatherByCityState(city, state);
   await getElements(response, user);
 }
 
 function getElements(response, user) {
-	if(response) {
-		user.humidity = response.main.humidity;
-		user.temperature = response.main.temp;  
-	} else {
-		console.log(`There was an error handling your request`);
-	}
+  if (response) {
+    user.humidity = response.main.humidity;
+    user.temperature = response.main.temp;
+  } else {
+    console.log(`There was an error handling your request`);
+  }
 }
 
 //DISPLAY FUNCTIONALITY ----------------------------------------------------------
 function changeHowtoCalculate() {
-$("#sex-or-bmi").change(function() {
-  if ($(this).val() === "bmi") {
-    $(".bmi").show();
-    $(".sexs").hide();
-  } else {
-    $(".bmi").hide();
-    $(".sexs").show();
-  }
-});
-let it = $("#sex-or-bmi")
-it.trigger("change");
-console.log('it:', it )
-} 
+  $("#sex-or-bmi").change(function () {
+    if ($(this).val() === "bmi") {
+      $(".bmi").show();
+      $(".sexs").hide();
+    } else {
+      $(".bmi").hide();
+      $(".sexs").show();
+    }
+  });
+  let it = $("#sex-or-bmi")
+  it.trigger("change");
+  console.log('it:', it)
+}
 
 function addHydrate(user, ozs) {
+  console.log(`addHydrate(${user.currentHydrationLevel}, ${ozs})`)
   user.currentHydrationLevel = user.currentHydrationLevel += ozs
-  console.log('hydratations',user.currentHydrationLevel);
+  console.log('hydratations', user.currentHydrationLevel);
   $("#currentHydro").html(user.currentHydrationLevel);
   // progress bar manip
-  let percentHydro =  (user.currentHydrationLevel / user.hydrationGoal ) * 100
-  console.log('percent',percentHydro)
+  let percentHydro = (user.currentHydrationLevel / user.hydrationGoal) * 100
+  console.log('percent', percentHydro)
   // let percentHydro = user.currentHydrationLevel 
   $('#bar').css("width", percentHydro + "%");
   reachedGoal(user);
@@ -64,9 +104,9 @@ function addHydrate(user, ozs) {
 
 function reachedGoal(user) {
   if (user.currentHydrationLevel >= user.hydrationGoal) {
-    alert('You did it!!');
     user.currentHydrationLevel = 0;
     $("#currentHydro").html(user.currentHydrationLevel);
+    alert('You did it!!');
     // user.createFish()
   }
 }
@@ -82,11 +122,16 @@ function reachedGoal(user) {
 
 // }
 
-$(document).ready(function() {
+//make this a global variable so we can access user's current hydration level in the return bottle function
+let thisUser = ""
+
+$(document).ready(function () {
   let user = new IndividualWaterIntake();
+  thisUser = user
   changeHowtoCalculate()
+  initDrag()
   //informations form ---------------------------------------------------------------------------------------
-  $("#personal-info").submit(function(event) {
+  $("#personal-info").submit(function (event) {
     event.preventDefault();
     let name = $("#name").val();
     let age = $("#age").val();
@@ -101,7 +146,7 @@ $(document).ready(function() {
     $("form#goal").show();
     $(".users-name").html(name);
     let stateLower = state.toLowerCase();
-    
+
     user.addUserInput(age, sex, height, weight, caffeineIntake, activity, city, stateLower)
     user.calculateUserBmi() //provide bmi property to user
     getWeatherStats(city, stateLower, user);
@@ -111,7 +156,7 @@ $(document).ready(function() {
     console.log('now user bmi is:', user.bmi);
   });
   // goal form-------------------------------------------------------------------------------------------------
-  $("#goal").submit(function(event) {
+  $("#goal").submit(function (event) {
     event.preventDefault();
     // $("#hydrationGoal").html(user.hydrationGoal);
     let goal = $("#daily-goal").val();
@@ -126,15 +171,16 @@ $(document).ready(function() {
     $("#currentHydro").html(user.currentHydrationLevel); //start hydro at 0
   });
   // tracking ------------------------------------------------------------------------------------------------ 
-  $("#addWaterButton").click(function(){
+  $("#addWaterButton").click(function () {
     $("form#select-water-amount").show()
   })
-  $("form#select-water-amount").submit(function(event) {
+  $("form#select-water-amount").submit(function (event) {
     event.preventDefault();
-    let ozs = parseInt($("#quantity").val());
+    let ozs = parseInt($("#thequantity").val());
     addHydrate(user, ozs);
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     $("form#select-water-amount").hide();
   });
 });
+
 
