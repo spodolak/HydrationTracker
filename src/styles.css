@@ -48,6 +48,11 @@
     font-size: 18px;
   }
 
+  .highlight {
+    color: #EBAB6B;
+    font-size: 40px;
+  }
+
   p {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
@@ -77,10 +82,6 @@
   
   .user-oz-display {
     color:  #d3da7d;
-  }
-
-  #usersGoal {
-    font-size: 40px;
   }
 
   /* hide and show classes */
