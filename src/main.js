@@ -29,21 +29,12 @@ function getElements(response, user) {
 	if(response) {
 		user.humidity = response.main.humidity;
 		user.temperature = response.main.temp;  
-		console.log(user.humidity);
-		console.log(user.temperature);
 	} else {
 		console.log(`There was an error handling your request`);
 	}
 }
 
 //DISPLAY FUNCTIONALITY ----------------------------------------------------------
-function displayWaterintake(name, age, body, region, activity) {
-  console.log('gathered info:', name, age, body, region, activity );
-  // here we will run the funciton to display suggested water intake based off the user info..
-  // passobly call the backend function here to calculate as well, or maybe call it in the form, 
-  // depending on what works best
-}
-
 function changeHowtoCalculate() {
 $("#sex-or-bmi").change(function() {
   if ($(this).val() === "bmi") {
@@ -59,13 +50,42 @@ it.trigger("change");
 console.log('it:', it )
 } 
 
-// function reachedGoal(usersCurrent, usersGoal) {
+function addHydrate(user, ozs) {
+  user.currentHydrationLevel = user.currentHydrationLevel += ozs
+  console.log('hydratations',user.currentHydrationLevel);
+  $("#currentHydro").html(user.currentHydrationLevel);
+  // progress bar manip
+  let percentHydro =  (user.currentHydrationLevel / user.hydrationGoal ) * 100
+  console.log('percent',percentHydro)
+  // let percentHydro = user.currentHydrationLevel 
+  $('#bar').css("width", percentHydro + "%");
+  reachedGoal(user);
+}
+
+function reachedGoal(user) {
+  if (user.currentHydrationLevel >= user.hydrationGoal) {
+    alert('You did it!!');
+    user.currentHydrationLevel = 0;
+    $("#currentHydro").html(user.currentHydrationLevel);
+    // user.createFish()
+  }
+}
+
+//  STRETCH GOAL : reset current hydro at midnight everyday with something like this
+// function resettingHydro(user) {
+//   let midnight = unix time representative?
+//   setInterval(() => {
+//     user.currentHydrationLevel = 0
+//     $("#currentHydro").html(user.currentHydrationLevel);
+
+//   } midnight)
 
 // }
 
 $(document).ready(function() {
   let user = new IndividualWaterIntake();
   changeHowtoCalculate()
+  //informations form ---------------------------------------------------------------------------------------
   $("#personal-info").submit(function(event) {
     event.preventDefault();
     let name = $("#name").val();
@@ -87,39 +107,33 @@ $(document).ready(function() {
     getWeatherStats(city, stateLower, user);
     user.calculateHydrationGoal() //calculate hydration suggestions based off user properties
     $("#hydrationGoal").html(user.hydrationGoal);
-    console.log('your hydraation goal is:', user.hydrationGoal);
+    $("#cups").html(user.hydrationGoalCup);
     console.log('now user bmi is:', user.bmi);
-    
-
-    displayWaterintake(name, age, sex, height, weight, city, state, activity); 
   });
+  // goal form-------------------------------------------------------------------------------------------------
   $("#goal").submit(function(event) {
     event.preventDefault();
     // $("#hydrationGoal").html(user.hydrationGoal);
     let goal = $("#daily-goal").val();
     let waterBottle = $("#waterbottle").val();
     $("#goal").hide();
-    $(".tracking").show();
-    
-    console.log('waterbottle is',waterBottle)
+    $(".track").show();
 
     //append information
     user.hydrationGoal = goal; //incase function is backend?
     $("#usersBottle").html(waterBottle); //display waterbottle ozs
     $("#usersGoal").html(goal); //Display users goal at top
     $("#currentHydro").html(user.currentHydrationLevel); //start hydro at 0
-
-    console.log('more gathered info:', goal, waterBottle);
   });
-  // tracking info? 
+  // tracking ------------------------------------------------------------------------------------------------ 
   $("#addWaterButton").click(function(){
     $("form#select-water-amount").show()
   })
   $("form#select-water-amount").submit(function(event) {
     event.preventDefault();
     let ozs = parseInt($("#quantity").val());
-    user.currentHydrationLevel = user.currentHydrationLevel += ozs
-    $("#currentHydro").html(user.currentHydrationLevel);
+    addHydrate(user, ozs);
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     $("form#select-water-amount").hide();
   });
 });
