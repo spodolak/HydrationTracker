@@ -33,7 +33,7 @@ const initDrag = function () {
       //informs us what is dragging- the plastic waterbottle
       console.log("this.target", this.target)
       //if target hits scope..
-      if (this.hitTest("#bottle")) {
+      if (this.hitTest(".vase")) {
         console.log("this.target", this.target)
         //do this animation AND... ON COMPLETE, EXECUTE THIS FUNCTION
         TweenLite.to(this.target, 0.6, { opacity: 0, scale: 0, onComplete: returnBottle });
@@ -96,6 +96,7 @@ function addHydrate(user, ozs) {
   $("#currentHydro").html(user.currentHydrationLevel);
   // progress bar manip
   let percentHydro = (user.currentHydrationLevel / user.hydrationGoal) * 100
+  chooseVase(percentHydro);
   console.log('percent', percentHydro)
   // let percentHydro = user.currentHydrationLevel 
   $('#bar').css("width", percentHydro + "%");
@@ -111,6 +112,43 @@ function reachedGoal(user) {
   }
 }
 
+function chooseVase(percentHydro) {
+  console.log('in. perc = ', percentHydro )
+  if (percentHydro < 10) {
+    $(".vase").remove();
+    $(".pictures").html(`<a  id="empty" href="https://imgur.com/Yyp9bcy"><img class="vase" src="https://i.imgur.com/Yyp9bcy.png" title="source: imgur.com" /></a>`);
+  } else if (percentHydro >= 10 && percentHydro <20) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v10" href="https://imgur.com/q5NREHV"><img class="vase" src="https://i.imgur.com/q5NREHV.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 20 && percentHydro <30) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v20" href="https://imgur.com/pjVCtOp"><img class="vase" src="https://i.imgur.com/pjVCtOp.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 30 && percentHydro <40) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v30" href="https://imgur.com/dzqAq3y"><img class="vase" src="https://i.imgur.com/dzqAq3y.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 40 && percentHydro <50) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v40" href="https://imgur.com/BiOIaac"><img class="vase" src="https://i.imgur.com/BiOIaac.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 50 && percentHydro <60) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v50" href="https://imgur.com/4p7QaP2"><img class="vase" src="https://i.imgur.com/4p7QaP2.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 60 && percentHydro <70) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v60" href="https://imgur.com/k6Cc5uP"><img class="vase" src="https://i.imgur.com/k6Cc5uP.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 70 && percentHydro <80) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v70" href="https://imgur.com/ysofOnp"><img class="vase" src="https://i.imgur.com/ysofOnp.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 80 && percentHydro <90) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v80" href="https://imgur.com/358md37"><img class="vase" src="https://i.imgur.com/358md37.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 90 && percentHydro <100) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v90" href="https://imgur.com/l0grCux"><img class="vase" src="https://i.imgur.com/l0grCux.png" title="source: imgur.com" /></a>`)
+  } else if (percentHydro >= 100) {
+    $(".vase").remove();
+    $(".pictures").append(`<a  id="v100" href="https://imgur.com/pkhzFjj"><img class="vase" src="https://i.imgur.com/pkhzFjj.png" title="source: imgur.com" /></a>`)
+  } 
+}
 //  STRETCH GOAL : reset current hydro at midnight everyday with something like this
 // function resettingHydro(user) {
 //   let midnight = unix time representative?
