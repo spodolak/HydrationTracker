@@ -107,8 +107,9 @@ function reachedGoal(user) {
   if (user.currentHydrationLevel >= user.hydrationGoal) {
     user.currentHydrationLevel = 0;
     $("#currentHydro").html(user.currentHydrationLevel);
+    user.fishIndex++;
+    $('.fish-'+ user.fishIndex).fadeIn();
     alert('You did it!!');
-    // user.createFish()
   }
 }
 
