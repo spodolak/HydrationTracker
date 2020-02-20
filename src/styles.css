@@ -274,6 +274,11 @@
       }
   }
   /* BUBBLE ANIMATION END  */
+
+  /* Vase image sizing */
+  img{
+    max-height: 600px;
+    }
   
   /* FISH 1 ANIMATION START */
   
@@ -832,3 +837,4 @@
   }
 }
 /* FISH 4 ANIMATION END */
+
