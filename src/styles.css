@@ -9,7 +9,7 @@
   body {
     margin:0;
     /* background: #7690b5; */
-    background-image: linear-gradient(to bottom, #7690b5, #6689a6, #5a8197, #527887, #4d6f77);
+    background-image: linear-gradient(to bottom, #7690b5, #6689a6, #5a8197, #527887, #6ee3fd);
     text-align:center;
     color:rgb(247, 228, 228);
     font-family: 'Inconsolata', monospace;
@@ -67,6 +67,9 @@
     font-size: 20px;
   }
 
+  #select-water-amount {
+    align-self: center;
+  }
   .form-style {
     align-self: center;
     border-radius: 7px;
@@ -108,6 +111,7 @@
   }
   #select-water-amount {
     display: none;
+    margin-left: 41%;
   }
 
   /* //animation styles */
@@ -125,6 +129,9 @@
    /* BUBBLE ANIMATION START */
   #bubbles { height: 100% }
   #bubbles { padding: 100px 0 }
+  #bubbles {
+    margin-left: 24%;
+  }
   .bubble {
       width: 60px;
       height: 60px;
@@ -423,13 +430,13 @@
 .fish__transparent {
   width: 50%;
   height: 100%;
-  background: #7690b5;
+  background: #6689a6;
   right: 0;
 }
 .fish__transparent::before {
   width: 7.75rem;
   height: 7.75rem;
-  background: #7690b5;
+  background: #6689a6;
   border-radius: 50%;
   top: 0;
   left: -4.5rem;
@@ -452,7 +459,7 @@
   z-index: 8;
   height: 6.5rem;
   width: 2.5rem;
-  background-color: #7690b5;
+  background-color: #6689a6;
   border-radius: 0% 144%;
   right: -28px;
   bottom: 61px;
@@ -876,7 +883,7 @@
 .cannon {
   height: 70vh;
   width: 1px;
-  margin-bottom: 1200px;
+  margin-bottom: 500px;
   /* position: absolute; */
   transform-origin: 50% 100%;
   animation: cannon-explosion 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
