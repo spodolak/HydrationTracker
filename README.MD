@@ -64,9 +64,6 @@ _Installing you're own API key:_
 ## Known Bugs
 Currently there are no known bugs. 
 
-## Contact Info 
-Currently there sre no known bugs, however, if there are any issues running this website I would love feedback! Please email me at keturah.dev@gmail.com.
-
 ## License
 
 This HTML web page is licensed under the MIT license.
